@@ -42,5 +42,14 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CadastroClientes nvCliente = new CadastroClientes();
+            nvCliente.Cliente(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text);
+            
+            ClientesCadastrados nvCadastro = new ClientesCadastrados();
+            /*nvCadastro.*/
+        }
     }
 }

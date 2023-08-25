@@ -19,7 +19,12 @@ namespace TrabalhoXML_AGRVAI.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
+            ClientesCadastrados nvCadas = new ClientesCadastrados();
 
+            this.Dispose();
+
+            nvCadas.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -30,6 +35,9 @@ namespace TrabalhoXML_AGRVAI.Forms
         private void button3_Click(object sender, EventArgs e)
         {
             CadastroProduto nvProduto = new CadastroProduto();
+
+            this.Dispose();
+
             nvProduto.ShowDialog();
         }
 

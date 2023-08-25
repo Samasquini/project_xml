@@ -21,13 +21,16 @@ namespace TrabalhoXML_AGRVAI
         private void button2_Click(object sender, EventArgs e)
         {
             TelaCliente nvCliente = new TelaCliente();
+            this.SuspendLayout();
+
             nvCliente.ShowDialog();
-            this.Dispose();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             TelaAdmim nvAdm= new TelaAdmim();
+
             nvAdm.ShowDialog();
         }
     }
