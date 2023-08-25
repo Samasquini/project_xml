@@ -229,6 +229,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "TelaCliente";
             this.Text = "TelaCliente";
+            this.Load += new System.EventHandler(this.TelaCliente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
