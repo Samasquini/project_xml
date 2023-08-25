@@ -46,11 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Classes\CadastroClientes.cs" />
+    <Compile Include="Forms\CadastroProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\CadastroProduto.Designer.cs">
+      <DependentUpon>CadastroProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TelaAdmim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TelaAdmim.Designer.cs">
+      <DependentUpon>TelaAdmim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelaInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaInicial.Designer.cs">
+      <DependentUpon>TelaInicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TelaCliente.cs">
       <SubType>Form</SubType>
@@ -58,10 +71,25 @@
     <Compile Include="Forms\TelaCliente.Designer.cs">
       <DependentUpon>TelaCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TelaVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TelaVenda.Designer.cs">
+      <DependentUpon>TelaVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\CadastroProduto.resx">
+      <DependentUpon>CadastroProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TelaAdmim.resx">
+      <DependentUpon>TelaAdmim.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\TelaCliente.resx">
       <DependentUpon>TelaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TelaVenda.resx">
+      <DependentUpon>TelaVenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -72,6 +100,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TelaInicial.resx">
+      <DependentUpon>TelaInicial.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
