@@ -66,15 +66,11 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "TelaInicial";
             this.Text = "Form1";
-<<<<<<< HEAD
+
             this.Load += new System.EventHandler(this.TelaInicial_Load);
-=======
-<<<<<<< HEAD
+
             this.Load += new System.EventHandler(this.TelaInicial_Load);
-=======
-            
->>>>>>> d288be2780a7c3dbbc2e93c978ca44e6e7f8b4e1
->>>>>>> 9e4ce5b044cb14a5cab351d556576dfccfc84eb1
+
             this.ResumeLayout(false);
 
         }
