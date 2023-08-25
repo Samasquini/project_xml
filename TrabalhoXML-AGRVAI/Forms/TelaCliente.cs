@@ -51,5 +51,10 @@ namespace TrabalhoXML_AGRVAI.Forms
             ClientesCadastrados nvCadastro = new ClientesCadastrados();
             /*nvCadastro.*/
         }
+
+        private void TelaCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
