@@ -35,9 +35,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(271, 155);
+            this.button1.Location = new System.Drawing.Point(203, 126);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 104);
+            this.button1.Size = new System.Drawing.Size(107, 84);
             this.button1.TabIndex = 0;
             this.button1.Text = "ADMIM";
             this.button1.UseVisualStyleBackColor = true;
@@ -45,9 +46,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(457, 155);
+            this.button2.Location = new System.Drawing.Point(343, 126);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(143, 104);
+            this.button2.Size = new System.Drawing.Size(107, 84);
             this.button2.TabIndex = 1;
             this.button2.Text = "CLIENTE";
             this.button2.UseVisualStyleBackColor = true;
@@ -55,15 +57,24 @@
             // 
             // TelaInicial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(826, 426);
+            this.ClientSize = new System.Drawing.Size(620, 346);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "TelaInicial";
             this.Text = "Form1";
+<<<<<<< HEAD
             this.Load += new System.EventHandler(this.TelaInicial_Load);
+=======
+<<<<<<< HEAD
+            this.Load += new System.EventHandler(this.TelaInicial_Load);
+=======
+            
+>>>>>>> d288be2780a7c3dbbc2e93c978ca44e6e7f8b4e1
+>>>>>>> 9e4ce5b044cb14a5cab351d556576dfccfc84eb1
             this.ResumeLayout(false);
 
         }
