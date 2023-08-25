@@ -47,8 +47,9 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
             CadastroClientes nvCliente = new CadastroClientes();
             nvCliente.Cliente(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text);
+
+            nvCliente.Main();
             
-            ClientesCadastrados nvCadastro = new ClientesCadastrados();
             /*nvCadastro.*/
         }
 
