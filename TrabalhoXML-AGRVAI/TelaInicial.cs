@@ -34,5 +34,10 @@ namespace TrabalhoXML_AGRVAI
 
             nvAdm.ShowDialog();
         }
+
+        private void TelaInicial_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
