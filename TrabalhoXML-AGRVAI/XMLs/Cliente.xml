@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<root>
-     <Cliente>
-		<nome id="name">kauan</nome>
-		<cpf id="cpf">0000</cpf>
-		<email id="email">daluz@gmail.com</email>
-		<telefone id="fone"></telefone>
-     </Cliente>
-</root>

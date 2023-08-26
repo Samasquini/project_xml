@@ -35,7 +35,6 @@
             this.txt_fone = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txt_email = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.txt_cpf = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_nome = new System.Windows.Forms.TextBox();
+            this.txt_email = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,14 +134,6 @@
             this.label5.Size = new System.Drawing.Size(0, 25);
             this.label5.TabIndex = 9;
             // 
-            // txt_email
-            // 
-            this.txt_email.Location = new System.Drawing.Point(50, 232);
-            this.txt_email.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(192, 22);
-            this.txt_email.TabIndex = 10;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Red;
@@ -196,6 +188,7 @@
             // 
             this.txt_cpf.Location = new System.Drawing.Point(50, 172);
             this.txt_cpf.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_cpf.MaxLength = 11;
             this.txt_cpf.Name = "txt_cpf";
             this.txt_cpf.Size = new System.Drawing.Size(192, 22);
             this.txt_cpf.TabIndex = 5;
@@ -219,6 +212,14 @@
             this.txt_nome.Name = "txt_nome";
             this.txt_nome.Size = new System.Drawing.Size(192, 22);
             this.txt_nome.TabIndex = 4;
+            // 
+            // txt_email
+            // 
+            this.txt_email.Location = new System.Drawing.Point(50, 232);
+            this.txt_email.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.Size = new System.Drawing.Size(192, 22);
+            this.txt_email.TabIndex = 10;
             // 
             // TelaCliente
             // 
@@ -246,7 +247,6 @@
         private System.Windows.Forms.TextBox txt_fone;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
@@ -254,5 +254,6 @@
         private System.Windows.Forms.TextBox txt_cpf;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_nome;
+        private System.Windows.Forms.TextBox txt_email;
     }
 }

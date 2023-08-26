@@ -23,6 +23,7 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
             CadastroClientes novoCliente = new CadastroClientes();
             novoCliente.Nome = txt_nome.Text;
+            
             novoCliente.Cpf = txt_cpf.Text;
             novoCliente.Email = txt_email.Text;
             novoCliente.Fone = txt_fone.Text;
