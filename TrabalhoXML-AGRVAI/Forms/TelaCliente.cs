@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using TrabalhoXML_AGRVAI.Classes;
 
 namespace TrabalhoXML_AGRVAI.Forms
@@ -14,6 +16,7 @@ namespace TrabalhoXML_AGRVAI.Forms
    /* List<CadastroCliente> novocliente = new List<CadastroClientes>();*/
     public partial class TelaCliente : Form
     {
+        List<CadastroClientes> cliente = new List<CadastroClientes>();
         public TelaCliente()
         {
             InitializeComponent();
@@ -49,14 +52,38 @@ namespace TrabalhoXML_AGRVAI.Forms
             CadastroClientes nvCliente = new CadastroClientes();
             nvCliente.Cliente(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text);
 
-            nvCliente.Main();
-            
-            /*nvCadastro.*/
+            /*cliente.Add(nvCliente);
+            MessageBox.Show("Cliente adicionado com sucesso!");*/
+
+            LimparCampos();
+
+            /*nvCliente.Main();*/
+
+            if (cliente.Count > 0)
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroClientes>));
+                
+
+                using (StreamWriter writer = new StreamWriter("Clientes.xml"))
+                {
+                    serializer.Serialize(writer, nvCliente);
+                }
+
+                MessageBox.Show("Clientes salvos no arquivo XML.");
+            }
+
         }
 
         private void TelaCliente_Load(object sender, EventArgs e)
         {
 
+        }
+        public void LimparCampos()
+        {
+            txt_nome.Clear();
+            txt_cpf.Clear();
+            txt_email.Clear();
+            txt_fone.Clear();
         }
     }
 }

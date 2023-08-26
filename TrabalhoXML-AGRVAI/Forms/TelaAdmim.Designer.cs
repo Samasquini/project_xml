@@ -105,6 +105,7 @@
             this.Controls.Add(this.button1);
             this.Name = "TelaAdmim";
             this.Text = "TelaAdmim";
+            this.Load += new System.EventHandler(this.TelaAdmim_Load);
             this.ResumeLayout(false);
 
         }

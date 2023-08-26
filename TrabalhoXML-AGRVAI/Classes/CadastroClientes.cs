@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace TrabalhoXML_AGRVAI.Classes
 {
-    internal class CadastroClientes
+    public class CadastroClientes
     {
 
         public string Nome { get; set; }
@@ -34,6 +34,7 @@ namespace TrabalhoXML_AGRVAI.Classes
             writer.WriteStartElement("cliente");
 
             // Write the xmlns:bk="urn:book" namespace declaration.
+
             writer.WriteAttributeString("id", "1");
             
 
@@ -45,11 +46,13 @@ namespace TrabalhoXML_AGRVAI.Classes
             writer.WriteElementString("email", this.Email);
             writer.WriteElementString("fone", this.Fone);
 
+            
             /*doc.LoadXml("Cliente.xml");
 
             XmlNode root = doc.FirstChild;
             Console.WriteLine("Display the price element...");
-            Console.WriteLine(root.LastChild.OuterXml);*/
+
+            Console.WriteLine(root.LastChild);*/
 
             // Write the close tag for the root element.
             writer.WriteEndElement();
