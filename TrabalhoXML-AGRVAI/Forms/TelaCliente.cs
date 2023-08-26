@@ -55,11 +55,11 @@ namespace TrabalhoXML_AGRVAI.Forms
             /*cliente.Add(nvCliente);
             MessageBox.Show("Cliente adicionado com sucesso!");*/
 
-            LimparCampos();
+            
 
             /*nvCliente.Main();*/
 
-            if (cliente.Count > 0)
+            if (cliente.Count > 0)// Verifica os dados da lista
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroClientes>));
                 
@@ -68,7 +68,7 @@ namespace TrabalhoXML_AGRVAI.Forms
                 {
                     serializer.Serialize(writer, nvCliente);
                 }
-
+                LimparCampos();
                 MessageBox.Show("Clientes salvos no arquivo XML.");
             }
 
