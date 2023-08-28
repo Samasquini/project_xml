@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -35,6 +36,7 @@
             this.txt_fone = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.txt_email = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,8 +44,11 @@
             this.txt_cpf = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_nome = new System.Windows.Forms.TextBox();
-            this.txt_email = new System.Windows.Forms.TextBox();
+            this.telaClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgv_clientes = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.telaClienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -134,6 +139,14 @@
             this.label5.Size = new System.Drawing.Size(0, 25);
             this.label5.TabIndex = 9;
             // 
+            // txt_email
+            // 
+            this.txt_email.Location = new System.Drawing.Point(50, 232);
+            this.txt_email.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.Size = new System.Drawing.Size(192, 22);
+            this.txt_email.TabIndex = 10;
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Red;
@@ -213,19 +226,26 @@
             this.txt_nome.Size = new System.Drawing.Size(192, 22);
             this.txt_nome.TabIndex = 4;
             // 
-            // txt_email
+            // telaClienteBindingSource
             // 
-            this.txt_email.Location = new System.Drawing.Point(50, 232);
-            this.txt_email.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(192, 22);
-            this.txt_email.TabIndex = 10;
+            this.telaClienteBindingSource.DataSource = typeof(TrabalhoXML_AGRVAI.Forms.TelaCliente);
+            // 
+            // dgv_clientes
+            // 
+            this.dgv_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_clientes.Location = new System.Drawing.Point(647, 33);
+            this.dgv_clientes.Name = "dgv_clientes";
+            this.dgv_clientes.RowHeadersWidth = 51;
+            this.dgv_clientes.RowTemplate.Height = 24;
+            this.dgv_clientes.Size = new System.Drawing.Size(536, 289);
+            this.dgv_clientes.TabIndex = 12;
             // 
             // TelaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 572);
+            this.ClientSize = new System.Drawing.Size(1381, 572);
+            this.Controls.Add(this.dgv_clientes);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel1);
             this.Name = "TelaCliente";
@@ -233,6 +253,8 @@
             this.Load += new System.EventHandler(this.TelaCliente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.telaClienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,5 +277,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_nome;
         private System.Windows.Forms.TextBox txt_email;
+        private System.Windows.Forms.BindingSource telaClienteBindingSource;
+        private System.Windows.Forms.DataGridView dgv_clientes;
     }
 }
