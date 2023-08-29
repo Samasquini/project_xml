@@ -13,6 +13,7 @@ using TrabalhoXML_AGRVAI.Classes;
 using System.Collections.Generic;
 using System.Xml;
 
+using System.Xml.Linq;
 namespace TrabalhoXML_AGRVAI.Forms
 {
    /* List<CadastroCliente> novocliente = new List<CadastroClientes>();*/
@@ -26,7 +27,7 @@ namespace TrabalhoXML_AGRVAI.Forms
             InitializeComponent();
             CarregarClientes();
             AtualizarDataGridView();
-           
+            LoadXMLData();
         }
         private void CarregarClientes()
         {
@@ -42,7 +43,7 @@ namespace TrabalhoXML_AGRVAI.Forms
         }
         private void AtualizarDataGridView()
         {
-            dgv_clientes = new DataGridView();
+            
             dgv_clientes.AutoGenerateColumns = false;
             dgv_clientes.Rows.Clear();
 
@@ -100,13 +101,14 @@ namespace TrabalhoXML_AGRVAI.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             XmlSerializer serialize = new XmlSerializer(typeof(List<CadastroClientes>));
-            CadastroClientes nvCliente = new CadastroClientes();
-            nvCliente.Cliente(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text);
+            CadastroClientes nvCliente = new CadastroClientes(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text);
+         
 
             clientes.Add(nvCliente);
-            MessageBox.Show("Cliente adicionado com sucesso!");
+            AtualizarDataGridView();
+            LimparCampos();
+            
 
             /*
              * nvCliente.Main();*/
@@ -115,7 +117,7 @@ namespace TrabalhoXML_AGRVAI.Forms
             {
                 serialize.Serialize(writer, clientes);
             }
-            MessageBox.Show("Clientes salvos no arquivo XML.");
+            /*MessageBox.Show("Clientes salvos no arquivo XML.");*/
             if (clientes.Count > 0)
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroClientes>));
@@ -125,41 +127,13 @@ namespace TrabalhoXML_AGRVAI.Forms
                     serializer.Serialize(writer, clientes);
                 }
 
-                MessageBox.Show("Clientes salvos no arquivo XML.");
-            }
-        }
-
-        private void TelaCliente_Load(object sender, EventArgs e)
-        {
-            // Crie uma tabela para armazenar os dados do XML
-            DataTable dataTable = new DataTable();
-
-            // Adicione as colunas à tabela com base no XML
-            dataTable.Columns.Add("Nome", typeof(string));
-            dataTable.Columns.Add("Cpf", typeof(string));
-            dataTable.Columns.Add("Fone", typeof(string));
-            dataTable.Columns.Add("Email", typeof(string));
-
-            // Carregue o arquivo XML
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("clientes.xml");
-
-            // Encontre os elementos desejados no XML (neste exemplo, assumimos uma estrutura específica)
-            XmlNodeList pessoaNodes = xmlDoc.SelectNodes("//Clientes");
-
-            foreach (XmlNode pessoaNode in pessoaNodes)
-            {
-                string nome = pessoaNode.SelectSingleNode("Nome").InnerText;
-                string cpf = (pessoaNode.SelectSingleNode("Cpf").InnerText);
-                string fone = pessoaNode.SelectSingleNode("Fone").InnerText;
-                string email = pessoaNode.SelectSingleNode("Email").InnerText;
-
-                // Adicione os dados como uma nova linha na tabela
-                dataTable.Rows.Add(nome, cpf, fone, email);
+                
+                AtualizarDataGridView();
+                LimparCampos();
             }
 
-            // Associe a tabela ao DataGridView
-            dgv_clientes.DataSource = dataTable;
+            
+            
         }
         public void LimparCampos()
         {
@@ -170,6 +144,35 @@ namespace TrabalhoXML_AGRVAI.Forms
         }
 
         private void dgv_clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void LoadXMLData()
+        {
+            try
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load("clientes.xml");
+
+                XmlNodeList pessoaNodes = xmlDoc.SelectNodes("CadastroCliente");
+
+                foreach (XmlNode pessoaNode in pessoaNodes)
+                {
+                    string nome = pessoaNode.SelectSingleNode("Nome").InnerText;
+                    string cpf = pessoaNode.SelectSingleNode("Cpf").InnerText;
+                    string email = pessoaNode.SelectSingleNode("Email").InnerText;
+                    string fone = pessoaNode.SelectSingleNode("Fone").InnerText;
+
+                    clientes.Add(new CadastroClientes(nome, cpf, email, fone));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TelaCliente_Load(object sender, EventArgs e)
         {
 
         }

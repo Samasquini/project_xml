@@ -16,6 +16,17 @@ namespace TrabalhoXML_AGRVAI.Classes
         public string Email { get; set; }
         public string Fone { get; set; }
 
+        public CadastroClientes()
+        {
+
+        }
+        public CadastroClientes(string nome, string cpf, string email, string fone)
+        {
+            this.Nome = nome;
+            this.Cpf = cpf;
+            this.Email = email;
+            this.Fone = fone;
+        }
         public void Cliente(string nome, string cpf, string email, string fone) 
         {
             this.Nome = nome;

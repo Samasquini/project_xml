@@ -44,11 +44,11 @@
             this.txt_cpf = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_nome = new System.Windows.Forms.TextBox();
-            this.telaClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgv_clientes = new System.Windows.Forms.DataGridView();
+            this.telaClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.telaClienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.telaClienteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -226,19 +226,19 @@
             this.txt_nome.Size = new System.Drawing.Size(192, 22);
             this.txt_nome.TabIndex = 4;
             // 
-            // telaClienteBindingSource
-            // 
-            this.telaClienteBindingSource.DataSource = typeof(TrabalhoXML_AGRVAI.Forms.TelaCliente);
-            // 
             // dgv_clientes
             // 
             this.dgv_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_clientes.Location = new System.Drawing.Point(647, 33);
+            this.dgv_clientes.Location = new System.Drawing.Point(664, 33);
             this.dgv_clientes.Name = "dgv_clientes";
             this.dgv_clientes.RowHeadersWidth = 51;
             this.dgv_clientes.RowTemplate.Height = 24;
-            this.dgv_clientes.Size = new System.Drawing.Size(536, 289);
+            this.dgv_clientes.Size = new System.Drawing.Size(688, 502);
             this.dgv_clientes.TabIndex = 12;
+            // 
+            // telaClienteBindingSource
+            // 
+            this.telaClienteBindingSource.DataSource = typeof(TrabalhoXML_AGRVAI.Forms.TelaCliente);
             // 
             // TelaCliente
             // 
@@ -253,8 +253,8 @@
             this.Load += new System.EventHandler(this.TelaCliente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.telaClienteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.telaClienteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
