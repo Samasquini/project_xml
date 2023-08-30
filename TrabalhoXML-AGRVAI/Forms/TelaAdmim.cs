@@ -20,11 +20,11 @@ namespace TrabalhoXML_AGRVAI.Forms
         private void button2_Click(object sender, EventArgs e)
         {
             
-            ClientesCadastrados nvCadas = new ClientesCadastrados();
+            
 
             this.Dispose();
 
-            nvCadas.ShowDialog();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -44,6 +44,11 @@ namespace TrabalhoXML_AGRVAI.Forms
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void TelaAdmim_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

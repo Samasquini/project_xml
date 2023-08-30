@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,7 +44,11 @@
             this.txt_cpf = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_nome = new System.Windows.Forms.TextBox();
+            this.dgv_clientes = new System.Windows.Forms.DataGridView();
+            this.telaClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.telaClienteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -196,6 +201,7 @@
             // 
             this.txt_cpf.Location = new System.Drawing.Point(50, 172);
             this.txt_cpf.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_cpf.MaxLength = 11;
             this.txt_cpf.Name = "txt_cpf";
             this.txt_cpf.Size = new System.Drawing.Size(192, 22);
             this.txt_cpf.TabIndex = 5;
@@ -220,11 +226,26 @@
             this.txt_nome.Size = new System.Drawing.Size(192, 22);
             this.txt_nome.TabIndex = 4;
             // 
+            // dgv_clientes
+            // 
+            this.dgv_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_clientes.Location = new System.Drawing.Point(664, 33);
+            this.dgv_clientes.Name = "dgv_clientes";
+            this.dgv_clientes.RowHeadersWidth = 51;
+            this.dgv_clientes.RowTemplate.Height = 24;
+            this.dgv_clientes.Size = new System.Drawing.Size(688, 502);
+            this.dgv_clientes.TabIndex = 12;
+            // 
+            // telaClienteBindingSource
+            // 
+            this.telaClienteBindingSource.DataSource = typeof(TrabalhoXML_AGRVAI.Forms.TelaCliente);
+            // 
             // TelaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 572);
+            this.ClientSize = new System.Drawing.Size(1381, 572);
+            this.Controls.Add(this.dgv_clientes);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel1);
             this.Name = "TelaCliente";
@@ -232,6 +253,8 @@
             this.Load += new System.EventHandler(this.TelaCliente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.telaClienteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,7 +269,6 @@
         private System.Windows.Forms.TextBox txt_fone;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
@@ -254,5 +276,8 @@
         private System.Windows.Forms.TextBox txt_cpf;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_nome;
+        private System.Windows.Forms.TextBox txt_email;
+        private System.Windows.Forms.BindingSource telaClienteBindingSource;
+        private System.Windows.Forms.DataGridView dgv_clientes;
     }
 }
