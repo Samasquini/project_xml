@@ -175,7 +175,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "TelaVenda";
             this.Text = "TelaVenda";
-            this.panel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false); 
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

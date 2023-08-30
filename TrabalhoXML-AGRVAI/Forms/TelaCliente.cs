@@ -12,8 +12,8 @@ using System.Xml.Serialization;
 using TrabalhoXML_AGRVAI.Classes;
 using System.Collections.Generic;
 using System.Xml;
-
 using System.Xml.Linq;
+
 namespace TrabalhoXML_AGRVAI.Forms
 {
     public partial class TelaCliente : Form
@@ -33,7 +33,7 @@ namespace TrabalhoXML_AGRVAI.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"error + {ex.Message}");
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
@@ -107,29 +107,40 @@ namespace TrabalhoXML_AGRVAI.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            XmlSerializer serialize = new XmlSerializer(typeof(List<CadastroClientes>));
-            CadastroClientes nvCliente = new CadastroClientes(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text);
-         
-            clientes.Add(nvCliente);
-            AtualizarDataGridView();
-            LimparCampos();
-            
-            using (StreamWriter writer = new StreamWriter("clientes.xml"))
-            {
-                serialize.Serialize(writer, clientes);
-            }
-            /*MessageBox.Show("Clientes salvos no arquivo XML.");*/
-            if (clientes.Count > 0)
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroClientes>));
+            string nm = txt_nome.Text;
+            string cf = txt_cpf.Text;
+            string em = txt_email.Text;
+            string fn = txt_fone.Text;
 
-                using (StreamWriter writer = new StreamWriter("clientes.xml"))
-                {
-                    serializer.Serialize(writer, clientes);
-                }
-            }
+            if(!(nm == "" && cf == "" && em == "" && fn == "")) { 
+
+                XmlSerializer serialize = new XmlSerializer(typeof(List<CadastroClientes>));
+                CadastroClientes nvCliente = new CadastroClientes(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text);
+         
+                clientes.Add(nvCliente);
                 AtualizarDataGridView();
                 LimparCampos();
+            
+                using (StreamWriter writer = new StreamWriter("clientes.xml"))
+                {
+                    serialize.Serialize(writer, clientes);
+                }
+                
+                if (clientes.Count > 0)
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroClientes>));
+
+                    using (StreamWriter writer = new StreamWriter("clientes.xml"))
+                    {
+                        serializer.Serialize(writer, clientes);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, preencha todos os campos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
         public void LimparCampos()
         {
@@ -149,10 +160,7 @@ namespace TrabalhoXML_AGRVAI.Forms
             {
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load("clientes.xml");
-
                 XmlNodeList pessoaNodes = xmlDoc.SelectNodes("CadastroCliente");
-
-              
             }
             catch (Exception ex)
             {
