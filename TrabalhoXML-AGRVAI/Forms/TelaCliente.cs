@@ -16,7 +16,6 @@ using System.Xml;
 using System.Xml.Linq;
 namespace TrabalhoXML_AGRVAI.Forms
 {
-   /* List<CadastroCliente> novocliente = new List<CadastroClientes>();*/
     public partial class TelaCliente : Form
     {
         List<CadastroClientes> clientes = new List<CadastroClientes>();
@@ -24,10 +23,19 @@ namespace TrabalhoXML_AGRVAI.Forms
         /*private DataGridView dataGridViewClientes;*/
         public TelaCliente()
         {
-            InitializeComponent();
-            CarregarClientes();
-            AtualizarDataGridView();
-            LoadXMLData();
+            try
+            {
+                InitializeComponent();
+                CarregarClientes();
+                ColunasDgv();
+                AtualizarDataGridView();
+                LoadXMLData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"error + {ex.Message}");
+            }
+            
         }
         private void CarregarClientes()
         {
@@ -43,9 +51,16 @@ namespace TrabalhoXML_AGRVAI.Forms
         }
         private void AtualizarDataGridView()
         {
-            
-            dgv_clientes.AutoGenerateColumns = false;
             dgv_clientes.Rows.Clear();
+
+            foreach (var cliente in clientes)
+            {
+                dgv_clientes.Rows.Add(cliente.Nome, cliente.Cpf, cliente.Fone, cliente.Email);
+            }
+        }
+        public void ColunasDgv()
+        {
+            dgv_clientes.AutoGenerateColumns = false;
 
             // Configuração das colunas (você precisa adicionar as colunas aqui)
             DataGridViewTextBoxColumn colunaNome = new DataGridViewTextBoxColumn();
@@ -68,15 +83,6 @@ namespace TrabalhoXML_AGRVAI.Forms
             dgv_clientes.Columns.Add(colunacpf);
             dgv_clientes.Columns.Add(colunaFone);
             dgv_clientes.Columns.Add(colunaEmail);
-
-            // Configurações do DataGridView, colunas etc.
-
-
-
-            foreach (var cliente in clientes)
-            {
-                dgv_clientes.Rows.Add(cliente.Nome, cliente.Cpf, cliente.Fone, cliente.Email);
-            }
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -104,15 +110,10 @@ namespace TrabalhoXML_AGRVAI.Forms
             XmlSerializer serialize = new XmlSerializer(typeof(List<CadastroClientes>));
             CadastroClientes nvCliente = new CadastroClientes(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text);
          
-
             clientes.Add(nvCliente);
             AtualizarDataGridView();
             LimparCampos();
             
-
-            /*
-             * nvCliente.Main();*/
-
             using (StreamWriter writer = new StreamWriter("clientes.xml"))
             {
                 serialize.Serialize(writer, clientes);
@@ -126,14 +127,9 @@ namespace TrabalhoXML_AGRVAI.Forms
                 {
                     serializer.Serialize(writer, clientes);
                 }
-
-                
+            }
                 AtualizarDataGridView();
                 LimparCampos();
-            }
-
-            
-            
         }
         public void LimparCampos()
         {
@@ -156,15 +152,7 @@ namespace TrabalhoXML_AGRVAI.Forms
 
                 XmlNodeList pessoaNodes = xmlDoc.SelectNodes("CadastroCliente");
 
-                foreach (XmlNode pessoaNode in pessoaNodes)
-                {
-                    string nome = pessoaNode.SelectSingleNode("Nome").InnerText;
-                    string cpf = pessoaNode.SelectSingleNode("Cpf").InnerText;
-                    string email = pessoaNode.SelectSingleNode("Email").InnerText;
-                    string fone = pessoaNode.SelectSingleNode("Fone").InnerText;
-
-                    clientes.Add(new CadastroClientes(nome, cpf, email, fone));
-                }
+              
             }
             catch (Exception ex)
             {

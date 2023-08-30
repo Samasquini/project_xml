@@ -17,7 +17,7 @@ namespace TrabalhoXML_AGRVAI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaCliente());
+            Application.Run(new TelaInicial());
         }
     }
 }
