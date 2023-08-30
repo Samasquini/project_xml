@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_produto = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_email = new System.Windows.Forms.TextBox();
@@ -40,13 +40,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_produto)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgv_produto);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txt_email);
@@ -62,15 +62,15 @@
             this.panel1.Size = new System.Drawing.Size(1084, 502);
             this.panel1.TabIndex = 12;
             // 
-            // dataGridView1
+            // dgv_produto
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(441, 74);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(453, 206);
-            this.dataGridView1.TabIndex = 11;
+            this.dgv_produto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_produto.Location = new System.Drawing.Point(473, 74);
+            this.dgv_produto.Name = "dgv_produto";
+            this.dgv_produto.RowHeadersWidth = 51;
+            this.dgv_produto.RowTemplate.Height = 24;
+            this.dgv_produto.Size = new System.Drawing.Size(571, 207);
+            this.dgv_produto.TabIndex = 11;
             // 
             // label2
             // 
@@ -114,6 +114,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Comprar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -175,9 +176,10 @@
             this.Controls.Add(this.panel1);
             this.Name = "TelaVenda";
             this.Text = "TelaVenda";
-            this.panel1.ResumeLayout(false); 
+            this.Load += new System.EventHandler(this.TelaVenda_Load);
+            this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_produto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -194,6 +196,6 @@
         private System.Windows.Forms.TextBox txt_cpf;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_nome;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_produto;
     }
 }
