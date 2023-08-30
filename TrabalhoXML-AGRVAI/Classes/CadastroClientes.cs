@@ -10,7 +10,7 @@ namespace TrabalhoXML_AGRVAI.Classes
 {
     public class CadastroClientes
     {
-
+        
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public string Email { get; set; }
@@ -22,10 +22,16 @@ namespace TrabalhoXML_AGRVAI.Classes
         }
         public CadastroClientes(string nome, string cpf, string email, string fone)
         {
-            this.Nome = nome;
-            this.Cpf = cpf;
-            this.Email = email;
-            this.Fone = fone;
+            try
+            {
+                this.Nome = nome;
+                this.Cpf = cpf;
+                this.Email = email;
+                this.Fone = fone;
+            }
+            catch(Exception ex) {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public void Cliente(string nome, string cpf, string email, string fone) 
         {
@@ -36,43 +42,49 @@ namespace TrabalhoXML_AGRVAI.Classes
         }
         public void Main()
         {
+            try
+            {
+                XmlWriter writer = null;
+                XmlDocument doc = new XmlDocument();
+                writer = XmlWriter.Create("Cliente.xml");
 
-            XmlWriter writer = null;
-            XmlDocument doc = new XmlDocument();
-            writer = XmlWriter.Create("Cliente.xml");
-            
-            // Write the root element.
-            writer.WriteStartElement("cliente");
+                // Write the root element.
+                writer.WriteStartElement("cliente");
 
-            // Write the xmlns:bk="urn:book" namespace declaration.
+                // Write the xmlns:bk="urn:book" namespace declaration.
 
-            writer.WriteAttributeString("id", "1");
-            
+                writer.WriteAttributeString("id", "1");
 
-             // Write the bk:ISBN="1-800-925" attribute.
-            /*writer.WriteAttributeString("ISBN", "urn:book", "1-800-925");*/
 
-            writer.WriteElementString("name", this.Nome);
-            writer.WriteElementString("cpf", this.Cpf);
-            writer.WriteElementString("email", this.Email);
-            writer.WriteElementString("fone", this.Fone);
+                // Write the bk:ISBN="1-800-925" attribute.
+                /*writer.WriteAttributeString("ISBN", "urn:book", "1-800-925");*/
 
-            
-            /*doc.LoadXml("Cliente.xml");
+                writer.WriteElementString("name", this.Nome);
+                writer.WriteElementString("cpf", this.Cpf);
+                writer.WriteElementString("email", this.Email);
+                writer.WriteElementString("fone", this.Fone);
 
-            XmlNode root = doc.FirstChild;
-            Console.WriteLine("Display the price element...");
 
-            Console.WriteLine(root.LastChild);*/
+                /*doc.LoadXml("Cliente.xml");
 
-            // Write the close tag for the root element.
-            writer.WriteEndElement();
+                XmlNode root = doc.FirstChild;
+                Console.WriteLine("Display the price element...");
 
-            // Write the XML to file and close the writer.
-            
-            writer.Flush();
-            writer.Close();
-            MessageBox.Show("Cadastrado com sucesso");
+                Console.WriteLine(root.LastChild);*/
+
+                // Write the close tag for the root element.
+                writer.WriteEndElement();
+
+                // Write the XML to file and close the writer.
+
+                writer.Flush();
+                writer.Close();
+                MessageBox.Show("Cadastrado com sucesso");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }
