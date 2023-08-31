@@ -20,11 +20,7 @@ namespace TrabalhoXML_AGRVAI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            TelaCliente nvCliente = new TelaCliente();
-            
-            // Novo comentario
-
-            nvCliente.ShowDialog();
+           
             
         }
 

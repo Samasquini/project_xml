@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CadastroClientes.cs" />
-    <Compile Include="Classes\CadastroPro.cs" />
     <Compile Include="Classes\Produto.cs" />
     <Compile Include="Forms\CadastroProduto.cs">
       <SubType>Form</SubType>

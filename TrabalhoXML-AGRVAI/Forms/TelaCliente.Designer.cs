@@ -1,4 +1,4 @@
-﻿namespace TrabalhoXML_AGRVAI.Forms
+﻿namespace TrabalhoXML_AGRVAI.Formzs
 {
     partial class TelaCliente
     {
@@ -45,8 +45,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.dgv_clientes = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.telaClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).BeginInit();
@@ -235,40 +233,18 @@
             this.dgv_clientes.Name = "dgv_clientes";
             this.dgv_clientes.RowHeadersWidth = 51;
             this.dgv_clientes.RowTemplate.Height = 24;
-            this.dgv_clientes.Size = new System.Drawing.Size(692, 502);
+            this.dgv_clientes.Size = new System.Drawing.Size(688, 502);
             this.dgv_clientes.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(965, 538);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Back-end";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(350, 539);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 20);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Front-end";
             // 
             // telaClienteBindingSource
             // 
-            this.telaClienteBindingSource.DataSource = typeof(TrabalhoXML_AGRVAI.Forms.TelaCliente);
+            this.telaClienteBindingSource.DataSource = typeof(TrabalhoXML_AGRVAI.Forms.TelaAdmim);
             // 
             // TelaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1381, 572);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgv_clientes);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel1);
@@ -303,7 +279,5 @@
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.BindingSource telaClienteBindingSource;
         private System.Windows.Forms.DataGridView dgv_clientes;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label10;
     }
 }

@@ -24,14 +24,14 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
 
         }
-        /*private void LoadComputerData()
+        private void LoadComputerData()
         {
             try
             {
                 string xmlFilePath = "estoque.xml"; // Caminho para o arquivo XML
                 XElement root = XElement.Load(xmlFilePath);
 
-                foreach (XElement computerElement in root.Elements("computer"))
+               /* foreach (XElement computerElement in root.Elements("computer"))
                 {
                     Produto computer = new Produto();
                     computer.Nome = computerElement.Element("name").Value;
@@ -39,20 +39,20 @@ namespace TrabalhoXML_AGRVAI.Forms
                     computer.Quantidade = int.Parse(computerElement.Element("quantity").Value);
 
                     produtos.Add(computer);
-                }
+                }*/
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao carregar dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }*/
+        }
         private void UpdateDataGridView()
         {
-            dgv_produto.Rows.Clear();
+            /*dgv_produto.Rows.Clear();
             foreach (Produto computer in produtos)
             {
                 dgv_produto.Rows.Add(computer.Nome, computer.Preco.ToString("C"), computer.Quantidade);
-            }
+            }*/
         }
 
         private void TelaVenda_Load(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace TrabalhoXML_AGRVAI.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*int selectedIndex = comboBoxComputers.SelectedIndex;
+          /*  int selectedIndex = comboBoxComputers.SelectedIndex;
             if (selectedIndex >= 0)
             {
                 Produto selectedComputer = produtos[selectedIndex];
@@ -78,11 +78,6 @@ namespace TrabalhoXML_AGRVAI.Forms
                     MessageBox.Show("Estoque esgotado para este computador.", "Sem Estoque", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }*/
-        }
-
-        private void dgv_produto_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

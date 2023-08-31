@@ -49,17 +49,17 @@ namespace TrabalhoXML_AGRVAI.Forms
                 LimparCampos();
                 using (StreamWriter writer = new StreamWriter("estoque.xml"))
                 {
-                        serialize.Serialize(writer, pro);
+                    serialize.Serialize(writer, pro);
                 }
                 if (pro.Count > 0)
                 {
-                   XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroPro>));
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroPro>));
 
-                   using (StreamWriter writer = new StreamWriter("estoque.xml"))
-                   {
-                       serializer.Serialize(writer, pro);
-                   }
-                        
+                    using (StreamWriter writer = new StreamWriter("estoque.xml"))
+                    {
+                        serializer.Serialize(writer, pro);
+                    }
+
                     /*}*/
                     MessageBox.Show("Salvo no xml");
                 }
