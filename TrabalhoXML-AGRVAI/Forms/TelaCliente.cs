@@ -13,6 +13,7 @@ using TrabalhoXML_AGRVAI.Classes;
 
 using System.Xml;
 using System.Xml.Linq;
+using TrabalhoXML_AGRVAI.Forms;
 
 namespace TrabalhoXML_AGRVAI.Formzs
 {
@@ -201,6 +202,17 @@ namespace TrabalhoXML_AGRVAI.Formzs
         private void TelaCliente_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgv_clientes_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            TelaVenda novaVend = new TelaVenda();
+            novaVend.ShowDialog();
         }
     }
 }

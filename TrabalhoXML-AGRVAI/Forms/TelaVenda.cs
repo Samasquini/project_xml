@@ -14,7 +14,8 @@ namespace TrabalhoXML_AGRVAI.Forms
 {
     public partial class TelaVenda : Form
     {
-        List<Produto> produtos = new List<Produto>();
+        /*List<Produto> produtos = new List<Produto>();*/
+        //Criar uma nova classe produto
         public TelaVenda()
         {
             InitializeComponent();
@@ -78,6 +79,11 @@ namespace TrabalhoXML_AGRVAI.Forms
                     MessageBox.Show("Estoque esgotado para este computador.", "Sem Estoque", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }*/
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

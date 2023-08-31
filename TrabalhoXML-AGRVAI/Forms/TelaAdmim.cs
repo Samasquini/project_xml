@@ -36,8 +36,6 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
             CadastroProduto nvProduto = new CadastroProduto();
 
-            this.Dispose();
-
             nvProduto.ShowDialog();
         }
 
@@ -49,6 +47,12 @@ namespace TrabalhoXML_AGRVAI.Forms
         private void TelaAdmim_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Estoque nvTela = new Estoque();
+            nvTela.ShowDialog();
         }
     }
 }

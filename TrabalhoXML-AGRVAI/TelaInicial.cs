@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrabalhoXML_AGRVAI.Forms;
+using TrabalhoXML_AGRVAI.Formzs;
 
 namespace TrabalhoXML_AGRVAI
 {
@@ -20,7 +21,8 @@ namespace TrabalhoXML_AGRVAI
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+            TelaCliente novoClie= new TelaCliente();
+            novoClie.ShowDialog();
             
         }
 
@@ -34,6 +36,11 @@ namespace TrabalhoXML_AGRVAI
         private void TelaInicial_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

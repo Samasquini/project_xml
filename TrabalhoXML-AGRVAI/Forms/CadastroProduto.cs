@@ -15,7 +15,7 @@ namespace TrabalhoXML_AGRVAI.Forms
 {
     public partial class CadastroProduto : Form
     {
-        List<CadastroPro> pro = new List<CadastroPro>();
+        public List<CadastroPro> pro = new List<CadastroPro>();
         public CadastroProduto()
         {
             InitializeComponent();
