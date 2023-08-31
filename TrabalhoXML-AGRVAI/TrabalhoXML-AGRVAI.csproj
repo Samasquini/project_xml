@@ -47,11 +47,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CadastroClientes.cs" />
+    <Compile Include="Classes\Produto.cs" />
     <Compile Include="Forms\CadastroProduto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CadastroProduto.Designer.cs">
       <DependentUpon>CadastroProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Estoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Estoque.Designer.cs">
+      <DependentUpon>Estoque.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TelaAdmim.cs">
       <SubType>Form</SubType>
@@ -81,6 +88,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\CadastroProduto.resx">
       <DependentUpon>CadastroProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Estoque.resx">
+      <DependentUpon>Estoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TelaAdmim.resx">
       <DependentUpon>TelaAdmim.cs</DependentUpon>

@@ -29,40 +29,42 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tx_preco = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txt_fone = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txt_email = new System.Windows.Forms.TextBox();
+            this.txt_quant = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txt_cpf = new System.Windows.Forms.TextBox();
+            this.txt_id = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_nome = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tx_descri = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.tx_descri);
+            this.panel1.Controls.Add(this.tx_preco);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.txt_fone);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txt_email);
+            this.panel1.Controls.Add(this.txt_quant);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txt_cpf);
+            this.panel1.Controls.Add(this.txt_id);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txt_nome);
             this.panel1.Location = new System.Drawing.Point(34, 26);
@@ -71,13 +73,13 @@
             this.panel1.Size = new System.Drawing.Size(728, 502);
             this.panel1.TabIndex = 11;
             // 
-            // textBox1
+            // tx_preco
             // 
-            this.textBox1.Location = new System.Drawing.Point(402, 206);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(105, 22);
-            this.textBox1.TabIndex = 15;
+            this.tx_preco.Location = new System.Drawing.Point(402, 206);
+            this.tx_preco.Margin = new System.Windows.Forms.Padding(4);
+            this.tx_preco.Name = "tx_preco";
+            this.tx_preco.Size = new System.Drawing.Size(105, 22);
+            this.tx_preco.TabIndex = 15;
             // 
             // label1
             // 
@@ -92,18 +94,6 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Preço ";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(129, 250);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 18);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Descrição";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -114,14 +104,6 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(0, 25);
             this.label7.TabIndex = 12;
-            // 
-            // txt_fone
-            // 
-            this.txt_fone.Location = new System.Drawing.Point(129, 269);
-            this.txt_fone.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_fone.Name = "txt_fone";
-            this.txt_fone.Size = new System.Drawing.Size(192, 22);
-            this.txt_fone.TabIndex = 13;
             // 
             // label2
             // 
@@ -146,13 +128,13 @@
             this.label5.Size = new System.Drawing.Size(0, 25);
             this.label5.TabIndex = 9;
             // 
-            // txt_email
+            // txt_quant
             // 
-            this.txt_email.Location = new System.Drawing.Point(129, 206);
-            this.txt_email.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(192, 22);
-            this.txt_email.TabIndex = 10;
+            this.txt_quant.Location = new System.Drawing.Point(129, 206);
+            this.txt_quant.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_quant.Name = "txt_quant";
+            this.txt_quant.Size = new System.Drawing.Size(192, 22);
+            this.txt_quant.TabIndex = 10;
             // 
             // button2
             // 
@@ -205,13 +187,13 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Nome produto";
             // 
-            // txt_cpf
+            // txt_id
             // 
-            this.txt_cpf.Location = new System.Drawing.Point(402, 140);
-            this.txt_cpf.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_cpf.Name = "txt_cpf";
-            this.txt_cpf.Size = new System.Drawing.Size(36, 22);
-            this.txt_cpf.TabIndex = 5;
+            this.txt_id.Location = new System.Drawing.Point(402, 140);
+            this.txt_id.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_id.Name = "txt_id";
+            this.txt_id.Size = new System.Drawing.Size(36, 22);
+            this.txt_id.TabIndex = 5;
             // 
             // label8
             // 
@@ -233,6 +215,38 @@
             this.txt_nome.Size = new System.Drawing.Size(192, 22);
             this.txt_nome.TabIndex = 4;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label6.Location = new System.Drawing.Point(129, 262);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 18);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Descrição";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label9.Location = new System.Drawing.Point(127, 273);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 25);
+            this.label9.TabIndex = 17;
+            // 
+            // tx_descri
+            // 
+            this.tx_descri.Location = new System.Drawing.Point(129, 284);
+            this.tx_descri.Margin = new System.Windows.Forms.Padding(4);
+            this.tx_descri.Name = "tx_descri";
+            this.tx_descri.Size = new System.Drawing.Size(378, 22);
+            this.tx_descri.TabIndex = 18;
+            // 
             // CadastroProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -250,20 +264,21 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txt_fone;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_email;
+        private System.Windows.Forms.TextBox txt_quant;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txt_cpf;
+        private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_nome;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tx_preco;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tx_descri;
     }
 }

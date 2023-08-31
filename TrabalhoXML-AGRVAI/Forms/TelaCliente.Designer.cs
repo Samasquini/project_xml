@@ -1,4 +1,4 @@
-﻿namespace TrabalhoXML_AGRVAI.Forms
+﻿namespace TrabalhoXML_AGRVAI.Formzs
 {
     partial class TelaCliente
     {
@@ -46,6 +46,7 @@
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.dgv_clientes = new System.Windows.Forms.DataGridView();
             this.telaClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.telaClienteBindingSource)).BeginInit();
@@ -78,7 +79,7 @@
             this.panel1.Controls.Add(this.txt_cpf);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txt_nome);
-            this.panel1.Location = new System.Drawing.Point(242, 33);
+            this.panel1.Location = new System.Drawing.Point(148, 33);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(304, 502);
@@ -229,22 +230,38 @@
             // dgv_clientes
             // 
             this.dgv_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_clientes.Location = new System.Drawing.Point(664, 33);
+            this.dgv_clientes.Location = new System.Drawing.Point(487, 33);
             this.dgv_clientes.Name = "dgv_clientes";
             this.dgv_clientes.RowHeadersWidth = 51;
             this.dgv_clientes.RowTemplate.Height = 24;
             this.dgv_clientes.Size = new System.Drawing.Size(688, 502);
             this.dgv_clientes.TabIndex = 12;
+            this.dgv_clientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_clientes_CellContentClick_1);
             // 
             // telaClienteBindingSource
             // 
-            this.telaClienteBindingSource.DataSource = typeof(TrabalhoXML_AGRVAI.Forms.TelaCliente);
+            this.telaClienteBindingSource.DataSource = typeof(TrabalhoXML_AGRVAI.Forms.TelaAdmim);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Cyan;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button3.Location = new System.Drawing.Point(1253, 475);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(98, 60);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "Ir as compras";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // TelaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1381, 572);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.dgv_clientes);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel1);
@@ -279,5 +296,6 @@
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.BindingSource telaClienteBindingSource;
         private System.Windows.Forms.DataGridView dgv_clientes;
+        private System.Windows.Forms.Button button3;
     }
 }
