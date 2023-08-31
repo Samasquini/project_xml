@@ -63,6 +63,7 @@
             this.Controls.Add(this.dgv_estoque);
             this.Name = "Estoque";
             this.Text = "Estoque";
+            this.Load += new System.EventHandler(this.Estoque_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_estoque)).EndInit();
             this.ResumeLayout(false);
 

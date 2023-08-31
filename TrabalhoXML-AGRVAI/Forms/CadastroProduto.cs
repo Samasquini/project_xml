@@ -40,11 +40,12 @@ namespace TrabalhoXML_AGRVAI.Forms
                 string nm = txt_nome.Text;
                 int qt = Convert.ToInt32(txt_quant.Text);
                 double pre = Convert.ToDouble(tx_preco.Text);
+                string dcr = tx_descri.Text;
                 /*if (!(nm == "" && id == "" && txt_quant.Text == "" && tx_preco.Text == ""))
                 {*/
 
                 XmlSerializer serialize = new XmlSerializer(typeof(List<CadastroPro>));
-                CadastroPro prod = new CadastroPro(id, nm, qt, pre);
+                CadastroPro prod = new CadastroPro(id, nm, qt, pre, dcr);
                 pro.Add(prod);
                 LimparCampos();
                 using (StreamWriter writer = new StreamWriter("estoque.xml"))
@@ -88,6 +89,11 @@ namespace TrabalhoXML_AGRVAI.Forms
             }
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }

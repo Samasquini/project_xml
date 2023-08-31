@@ -33,7 +33,7 @@ namespace TrabalhoXML_AGRVAI.Forms
 
                 foreach (var cliente in novo.pro)
                 {
-                    dgv_estoque.Rows.Add(cliente.Nome, cliente.Id, cliente.Quantidade, cliente.Preco);
+                    dgv_estoque.Rows.Add(cliente.Nome, cliente.Id, cliente.Quantidade, cliente.Preco, cliente.Descricao);
                 }
             }
             catch (Exception ex)
@@ -85,10 +85,15 @@ namespace TrabalhoXML_AGRVAI.Forms
                 colunaPreco.DataPropertyName = "Preço";
                 colunaPreco.HeaderText = "Preço";
 
+                DataGridViewTextBoxColumn colunaDes = new DataGridViewTextBoxColumn();
+                colunaDes.DataPropertyName = "Descrição";
+                colunaDes.HeaderText = "Descrição";
+
                 dgv_estoque.Columns.Add(colunaNome);
                 dgv_estoque.Columns.Add(colunaId);
                 dgv_estoque.Columns.Add(colunaQt);
                 dgv_estoque.Columns.Add(colunaPreco);
+                dgv_estoque.Columns.Add(colunaDes);
             }
             catch (Exception ex)
             {
@@ -113,6 +118,11 @@ namespace TrabalhoXML_AGRVAI.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Estoque_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

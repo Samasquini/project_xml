@@ -42,12 +42,18 @@
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_nome = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tx_descri = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.tx_descri);
             this.panel1.Controls.Add(this.tx_preco);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label7);
@@ -209,6 +215,38 @@
             this.txt_nome.Size = new System.Drawing.Size(192, 22);
             this.txt_nome.TabIndex = 4;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label6.Location = new System.Drawing.Point(129, 262);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 18);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Descrição";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label9.Location = new System.Drawing.Point(127, 273);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 25);
+            this.label9.TabIndex = 17;
+            // 
+            // tx_descri
+            // 
+            this.tx_descri.Location = new System.Drawing.Point(129, 284);
+            this.tx_descri.Margin = new System.Windows.Forms.Padding(4);
+            this.tx_descri.Name = "tx_descri";
+            this.tx_descri.Size = new System.Drawing.Size(378, 22);
+            this.tx_descri.TabIndex = 18;
+            // 
             // CadastroProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -239,5 +277,8 @@
         private System.Windows.Forms.TextBox txt_nome;
         private System.Windows.Forms.TextBox tx_preco;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tx_descri;
     }
 }
