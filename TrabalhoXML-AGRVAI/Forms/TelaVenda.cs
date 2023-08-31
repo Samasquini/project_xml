@@ -24,7 +24,7 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
 
         }
-        private void LoadComputerData()
+        /*private void LoadComputerData()
         {
             try
             {
@@ -45,7 +45,7 @@ namespace TrabalhoXML_AGRVAI.Forms
             {
                 MessageBox.Show("Erro ao carregar dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }*/
         private void UpdateDataGridView()
         {
             dgv_produto.Rows.Clear();
@@ -62,7 +62,7 @@ namespace TrabalhoXML_AGRVAI.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int selectedIndex = comboBoxComputers.SelectedIndex;
+            /*int selectedIndex = comboBoxComputers.SelectedIndex;
             if (selectedIndex >= 0)
             {
                 Produto selectedComputer = produtos[selectedIndex];
@@ -77,7 +77,12 @@ namespace TrabalhoXML_AGRVAI.Forms
                 {
                     MessageBox.Show("Estoque esgotado para este computador.", "Sem Estoque", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
+            }*/
+        }
+
+        private void dgv_produto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
