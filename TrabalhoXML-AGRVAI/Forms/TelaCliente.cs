@@ -14,7 +14,7 @@ using TrabalhoXML_AGRVAI.Classes;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace TrabalhoXML_AGRVAI.Forms
+namespace TrabalhoXML_AGRVAI.Formzs
 {
     public partial class TelaCliente : Form
     {
