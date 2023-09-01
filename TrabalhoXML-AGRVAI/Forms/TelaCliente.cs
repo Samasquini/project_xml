@@ -179,6 +179,7 @@ namespace TrabalhoXML_AGRVAI.Formzs
             txt_cpf.Clear();
             txt_email.Clear();
             txt_fone.Clear();
+           
         }
 
         private void dgv_clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
