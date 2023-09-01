@@ -40,13 +40,13 @@
             this.dgv_estoque.Name = "dgv_estoque";
             this.dgv_estoque.RowHeadersWidth = 51;
             this.dgv_estoque.RowTemplate.Height = 24;
-            this.dgv_estoque.Size = new System.Drawing.Size(558, 426);
+            this.dgv_estoque.Size = new System.Drawing.Size(641, 426);
             this.dgv_estoque.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(613, 395);
+            this.button1.Location = new System.Drawing.Point(701, 395);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 43);
             this.button1.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(760, 450);
+            this.ClientSize = new System.Drawing.Size(841, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgv_estoque);
             this.Name = "Estoque";

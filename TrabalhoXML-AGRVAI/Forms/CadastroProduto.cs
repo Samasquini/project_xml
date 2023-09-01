@@ -36,7 +36,7 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
             try
             {
-                string id = txt_id.Text;
+                int id = Convert.ToInt32(txt_id.Text); 
                 string nm = txt_nome.Text;
                 int qt = Convert.ToInt32(txt_quant.Text);
                 double pre = Convert.ToDouble(tx_preco.Text);
@@ -76,6 +76,7 @@ namespace TrabalhoXML_AGRVAI.Forms
             txt_id.Clear();
             txt_quant.Clear();
             tx_preco.Clear();
+            tx_descri.Clear();
         }
         public void AtualizaList()
         {
@@ -94,6 +95,11 @@ namespace TrabalhoXML_AGRVAI.Forms
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
         {
 
         }
