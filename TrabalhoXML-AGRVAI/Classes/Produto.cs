@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace TrabalhoXML_AGRVAI.Classes
 {
-    public class CadastroPro
+    public class Produto
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -15,11 +15,15 @@ namespace TrabalhoXML_AGRVAI.Classes
         public double Preco { get; set; }
         public string Descricao { get; set; }
 
-        public CadastroPro()
+        public Produto()
         {
 
         }
+<<<<<<< HEAD
+        public Produto(string id, string nome, int quant, double preco, string Descricao)
+=======
         public CadastroPro(int id, string nome, int quant, double preco, string Descricao)
+>>>>>>> c972d1a7227e7aa99fc4bdef8add567e8c95debb
         {
             this.Id = id;
             this.Nome = nome;
