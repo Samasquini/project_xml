@@ -18,8 +18,8 @@ namespace TrabalhoXML_AGRVAI.Forms
 {
     public partial class TelaVenda : Form
     {
-        List<CadastroPro> produtos = new List<CadastroPro>();
-        CadastroPro prod = new CadastroPro();
+        List<Produto> produtos = new List<Produto>();
+        Produto prod = new Produto();
         //Criar uma nova classe produto
         public TelaVenda()
         {
@@ -76,7 +76,7 @@ namespace TrabalhoXML_AGRVAI.Forms
             int selectedId;
             if (int.TryParse(txt_id.Text, out selectedId))
             {
-                CadastroPro selectedComputer = produtos.FirstOrDefault(c => c.Id == selectedId);// O lambda é "vai para"
+                Produto selectedComputer = produtos.FirstOrDefault(c => c.Id == selectedId);// O lambda é "vai para"
 
                 if (selectedComputer != null && selectedComputer.Quantidade > 0)
                 {
@@ -159,11 +159,11 @@ namespace TrabalhoXML_AGRVAI.Forms
             {
                 if (File.Exists("estoque.xml"))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroPro>));
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Produto>));
 
                     using (StreamReader reader = new StreamReader("estoque.xml"))
                     {
-                        dnv.pro = (List<CadastroPro>)serializer.Deserialize(reader);
+                        dnv.pro = (List<Produto>)serializer.Deserialize(reader);
                     }
                 }
             }
@@ -175,7 +175,7 @@ namespace TrabalhoXML_AGRVAI.Forms
         private void UpdateDataGridView()
         {
             dgv_produto.Rows.Clear();
-            foreach (CadastroPro computer in produtos)
+            foreach(Produto computer in produtos)
             {
                 dgv_produto.Rows.Add(computer.Id, computer.Nome, computer.Preco.ToString("C"), computer.Quantidade);
             }

@@ -14,14 +14,17 @@ using TrabalhoXML_AGRVAI.Classes;
 using System.Xml;
 using System.Xml.Linq;
 using TrabalhoXML_AGRVAI.Forms;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TrabalhoXML_AGRVAI.Formzs
 {
     public partial class TelaCliente : Form
     {
-        List<CadastroClientes> clientes = new List<CadastroClientes>();
+        /*List<CadastroClientes> clientes = new List<CadastroClientes>();*/
+        Cliente novo = new Cliente();
+      
         private string arquivoXML = "clientes.xml";
-        /*private DataGridView dataGridViewClientes;*/
+       
         public TelaCliente()
         {
             try
@@ -40,15 +43,16 @@ namespace TrabalhoXML_AGRVAI.Formzs
         }
         private void CarregarClientes()
         {
+            
             try
             {
                 if (File.Exists(arquivoXML))
                 {
                     XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroClientes>));
 
-                    using (StreamReader reader = new StreamReader(arquivoXML))
+                    using (StreamReader lerXml = new StreamReader(arquivoXML))
                     {
-                        clientes = (List<CadastroClientes>)serializer.Deserialize(reader);
+                        novo.clientes = (List<CadastroClientes>)serializer.Deserialize(lerXml);
                     }
                 }
             }
@@ -63,7 +67,7 @@ namespace TrabalhoXML_AGRVAI.Formzs
             {
                 dgv_clientes.Rows.Clear();
 
-                foreach (var cliente in clientes)
+                foreach (var cliente in novo.clientes)
                 {
                     dgv_clientes.Rows.Add(cliente.Nome, cliente.Cpf, cliente.Fone, cliente.Email);
                 }
@@ -109,11 +113,7 @@ namespace TrabalhoXML_AGRVAI.Formzs
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            CadastroClientes novoCliente = new CadastroClientes();
-            novoCliente.Nome = txt_nome.Text;
-            novoCliente.Cpf = txt_cpf.Text;
-            novoCliente.Email = txt_email.Text;
-            novoCliente.Fone = txt_fone.Text;
+           
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -130,18 +130,21 @@ namespace TrabalhoXML_AGRVAI.Formzs
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            /*try
             {
-                string nm = txt_nome.Text;
+                *//*string nm = txt_nome.Text;
                 string cf = txt_cpf.Text;
                 string em = txt_email.Text;
                 string fn = txt_fone.Text;
-                string sh = tx_senha.Text;
+                string sh = tx_senha.Text;*//*
+                Cliente nvCli = new Cliente();
+                nvCli.nm;
 
                 if (!(nm == "" && cf == "" && em == "" && fn == "" && sh == ""))
                 {
 
                     XmlSerializer serialize = new XmlSerializer(typeof(List<CadastroClientes>));
+                    
                     CadastroClientes nvCliente = new CadastroClientes(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text, tx_senha.Text);
 
                     clientes.Add(nvCliente);
@@ -157,9 +160,9 @@ namespace TrabalhoXML_AGRVAI.Formzs
                     {
                         XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroClientes>));
 
-                        using (StreamWriter writer = new StreamWriter("clientes.xml"))
+                        using (StreamWriter ecXml = new StreamWriter("clientes.xml"))
                         {
-                            serializer.Serialize(writer, clientes);
+                            serializer.Serialize(ecXml, clientes);
                         }
                     }
                 }
@@ -171,19 +174,19 @@ namespace TrabalhoXML_AGRVAI.Formzs
             catch(Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
 
         }
-        public void LimparCampos()
+       /* public void LimparCampos()
         {
             txt_nome.Clear();
             txt_cpf.Clear();
             txt_email.Clear();
             txt_fone.Clear();
            
-        }
+        }*/
 
-        private void dgv_clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void dgv_clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -193,7 +196,7 @@ namespace TrabalhoXML_AGRVAI.Formzs
             {
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load("clientes.xml");
-                XmlNodeList pessoaNodes = xmlDoc.SelectNodes("CadastroCliente");
+                XmlNodeList pessoaNode = xmlDoc.SelectNodes("CadastroCliente");
             }
             catch (Exception ex)
             {
@@ -206,7 +209,7 @@ namespace TrabalhoXML_AGRVAI.Formzs
 
         }
 
-        private void dgv_clientes_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        public void dgv_clientes_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -215,7 +218,9 @@ namespace TrabalhoXML_AGRVAI.Formzs
         {
             /* TelaVenda novaVend = new TelaVenda();
              novaVend.ShowDialog();*/
+
             Usuario usuario = new Usuario();
+            this.Dispose();
             usuario.ShowDialog();
         }
     }

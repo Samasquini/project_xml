@@ -42,8 +42,9 @@ namespace TrabalhoXML_AGRVAI.Forms
 
                 if (password == storedPassword)
                 {
-                    MessageBox.Show("Login bem-sucedido! Acesso concedido.");
+                   /* MessageBox.Show("Login bem-sucedido! Acesso concedido.");*/
                     TelaVenda venda= new TelaVenda();
+                    this.Dispose();
                     venda.ShowDialog();
                 }
                 else

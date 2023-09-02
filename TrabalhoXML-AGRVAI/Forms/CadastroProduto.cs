@@ -15,7 +15,7 @@ namespace TrabalhoXML_AGRVAI.Forms
 {
     public partial class CadastroProduto : Form
     {
-        public List<CadastroPro> pro = new List<CadastroPro>();
+        public List<Produto> pro = new List<Produto>();
         public CadastroProduto()
         {
             InitializeComponent();
@@ -41,12 +41,12 @@ namespace TrabalhoXML_AGRVAI.Forms
                 int qt = Convert.ToInt32(txt_quant.Text);
                 double pre = Convert.ToDouble(tx_preco.Text);
                 string dcr = tx_descri.Text;
-                /*if (!(nm == "" && id == "" && txt_quant.Text == "" && tx_preco.Text == ""))
-                {*/
 
-                XmlSerializer serialize = new XmlSerializer(typeof(List<CadastroPro>));
-                CadastroPro prod = new CadastroPro(id, nm, qt, pre, dcr);
+                XmlSerializer serialize = new XmlSerializer(typeof(List<Produto>));
+                Produto prod = new Produto(id, nm, qt, pre, dcr);
+
                 pro.Add(prod);
+
                 LimparCampos();
                 using (StreamWriter writer = new StreamWriter("estoque.xml"))
                 {
@@ -54,15 +54,12 @@ namespace TrabalhoXML_AGRVAI.Forms
                 }
                 if (pro.Count > 0)
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroPro>));
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Produto>));
 
                     using (StreamWriter writer = new StreamWriter("estoque.xml"))
                     {
                         serializer.Serialize(writer, pro);
                     }
-
-                    /*}*/
-                    MessageBox.Show("Salvo no xml");
                 }
             }
             catch (Exception ex)
@@ -84,8 +81,8 @@ namespace TrabalhoXML_AGRVAI.Forms
             {
                 using (StreamReader reader = new StreamReader("estoque.xml"))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroPro>));
-                    pro = (List<CadastroPro>)serializer.Deserialize(reader);
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Produto>));
+                    pro = (List<Produto>)serializer.Deserialize(reader);
                 }
             }
         }
@@ -104,5 +101,9 @@ namespace TrabalhoXML_AGRVAI.Forms
 
         }
 
+        private void CadastroProduto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

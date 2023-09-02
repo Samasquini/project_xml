@@ -49,11 +49,11 @@ namespace TrabalhoXML_AGRVAI.Forms
             {
                 if (File.Exists("estoque.xml"))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroPro>));
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Produto>));
 
                     using (StreamReader reader = new StreamReader("estoque.xml"))
                     {
-                        dnv.pro = (List<CadastroPro>)serializer.Deserialize(reader);
+                        dnv.pro = (List<Produto>)serializer.Deserialize(reader);
                         // ^^^ Aqui pode estar o problema, pois é "pro" ao invés de "pro"
                     }
                 }

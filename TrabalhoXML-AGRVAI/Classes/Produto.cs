@@ -19,19 +19,15 @@ namespace TrabalhoXML_AGRVAI.Classes
         {
 
         }
-<<<<<<< HEAD
-        public Produto(string id, string nome, int quant, double preco, string Descricao)
-=======
-        public CadastroPro(int id, string nome, int quant, double preco, string Descricao)
->>>>>>> c972d1a7227e7aa99fc4bdef8add567e8c95debb
+
+        public Produto(int id, string nome, int quant, double preco, string Descricao)
         {
             this.Id = id;
             this.Nome = nome;
             this.Quantidade = quant;
             this.Preco = preco;
             this.Descricao = Descricao;
-        }
 
-        
+        }        
     }
 }
