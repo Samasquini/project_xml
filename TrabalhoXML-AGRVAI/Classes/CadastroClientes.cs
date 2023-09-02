@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,11 +17,13 @@ namespace TrabalhoXML_AGRVAI.Classes
         public string Email { get; set; }
         public string Fone { get; set; }
 
+        public string password { get; set; }
+
         public CadastroClientes()
         {
 
         }
-        public CadastroClientes(string nome, string cpf, string email, string fone)
+        public CadastroClientes(string nome, string cpf, string email, string fone, string password)
         {
             try
             {
@@ -28,6 +31,7 @@ namespace TrabalhoXML_AGRVAI.Classes
                 this.Cpf = cpf;
                 this.Email = email;
                 this.Fone = fone;
+                this.password= password;
             }
             catch(Exception ex) {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);

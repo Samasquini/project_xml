@@ -66,6 +66,12 @@
     <Compile Include="Forms\TelaAdmim.Designer.cs">
       <DependentUpon>TelaAdmim.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Usuario.Designer.cs">
+      <DependentUpon>Usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaInicial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TelaVenda.resx">
       <DependentUpon>TelaVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Usuario.resx">
+      <DependentUpon>Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

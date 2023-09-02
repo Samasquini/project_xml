@@ -136,12 +136,13 @@ namespace TrabalhoXML_AGRVAI.Formzs
                 string cf = txt_cpf.Text;
                 string em = txt_email.Text;
                 string fn = txt_fone.Text;
+                string sh = tx_senha.Text;
 
-                if (!(nm == "" && cf == "" && em == "" && fn == ""))
+                if (!(nm == "" && cf == "" && em == "" && fn == "" && sh == ""))
                 {
 
                     XmlSerializer serialize = new XmlSerializer(typeof(List<CadastroClientes>));
-                    CadastroClientes nvCliente = new CadastroClientes(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text);
+                    CadastroClientes nvCliente = new CadastroClientes(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text, tx_senha.Text);
 
                     clientes.Add(nvCliente);
                     AtualizarDataGridView();
@@ -212,8 +213,10 @@ namespace TrabalhoXML_AGRVAI.Formzs
 
         private void button3_Click(object sender, EventArgs e)
         {
-            TelaVenda novaVend = new TelaVenda();
-            novaVend.ShowDialog();
+            /* TelaVenda novaVend = new TelaVenda();
+             novaVend.ShowDialog();*/
+            Usuario usuario = new Usuario();
+            usuario.ShowDialog();
         }
     }
 }

@@ -27,5 +27,7 @@ namespace TrabalhoXML_AGRVAI.Classes
             this.Preco = preco;
             this.Descricao = Descricao;
         }
+
+        
     }
 }

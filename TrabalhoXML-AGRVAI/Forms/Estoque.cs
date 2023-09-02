@@ -124,5 +124,17 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CadastroProduto novo = new CadastroProduto();
+            var list = novo.pro;
+            var index = dgv_estoque.CurrentCell.RowIndex;
+            
+            
+            dgv_estoque.DataSource = null;
+            dgv_estoque.Refresh();
+            dgv_estoque.DataSource = list;
+        }
     }
 }

@@ -255,6 +255,7 @@
             this.ClientSize = new System.Drawing.Size(800, 555);
             this.Controls.Add(this.panel1);
             this.Name = "CadastroProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CadastroProduto";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

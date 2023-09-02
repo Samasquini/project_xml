@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaVenda));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -85,7 +86,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(674, 31);
+            this.label1.Location = new System.Drawing.Point(656, 31);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(202, 31);
@@ -95,11 +96,11 @@
             // dgv_produto
             // 
             this.dgv_produto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_produto.Location = new System.Drawing.Point(507, 74);
+            this.dgv_produto.Location = new System.Drawing.Point(441, 74);
             this.dgv_produto.Name = "dgv_produto";
             this.dgv_produto.RowHeadersWidth = 51;
             this.dgv_produto.RowTemplate.Height = 24;
-            this.dgv_produto.Size = new System.Drawing.Size(537, 317);
+            this.dgv_produto.Size = new System.Drawing.Size(603, 317);
             this.dgv_produto.TabIndex = 11;
             // 
             // label2
@@ -205,7 +206,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1211, 564);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaVenda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaVenda";
             this.Load += new System.EventHandler(this.TelaVenda_Load);
             this.panel1.ResumeLayout(false);
