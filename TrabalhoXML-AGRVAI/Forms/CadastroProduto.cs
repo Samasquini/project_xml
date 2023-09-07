@@ -36,14 +36,16 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
             try
             {
-                int id = Convert.ToInt32(txt_id.Text); 
                 string nm = txt_nome.Text;
-                int qt = Convert.ToInt32(txt_quant.Text);
+                /*int id = Convert.ToInt32(txt_id.Text);*/
+                string id = txt_id.Text;
                 double pre = Convert.ToDouble(tx_preco.Text);
+                int qt = Convert.ToInt32(txt_quant.Text);
                 string dcr = tx_descri.Text;
 
                 XmlSerializer serialize = new XmlSerializer(typeof(List<Produto>));
                 Produto prod = new Produto(nm, id, qt, pre, dcr);
+
 
                 pro.Add(prod);
 
@@ -64,7 +66,7 @@ namespace TrabalhoXML_AGRVAI.Forms
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void LimparCampos()

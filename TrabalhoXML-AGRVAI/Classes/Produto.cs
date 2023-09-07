@@ -10,7 +10,7 @@ namespace TrabalhoXML_AGRVAI.Classes
     public class Produto
     {
         public string Nome { get; set; }
-        public int Id { get; set; }
+        public string ID { get; set; }
         public int Quantidade { get; set; }
         public double Preco { get; set; }
         public string Descricao { get; set; }
@@ -20,12 +20,12 @@ namespace TrabalhoXML_AGRVAI.Classes
 
         }
 
-        public Produto( string nome, int id, int quant, double preco, string Descricao)
+        public Produto( string nome, string id, int quant, double preco, string Descricao)
         {
-            this.Id = Id;
             this.Nome = nome;
-            this.Quantidade = quant;
+            this.ID = id;
             this.Preco = preco;
+            this.Quantidade = quant;
             this.Descricao = Descricao;
 
         }        

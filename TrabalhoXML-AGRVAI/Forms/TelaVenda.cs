@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,7 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using TrabalhoXML_AGRVAI.Classes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace TrabalhoXML_AGRVAI.Forms
 {
@@ -20,122 +22,108 @@ namespace TrabalhoXML_AGRVAI.Forms
     {
         List<Produto> produtos = new List<Produto>();
         Produto prod = new Produto();
+
+        private List<Produto> produtosDisponiveis;
+        private List<Produto> produtosVendidos;
         //Criar uma nova classe produto
         public TelaVenda()
         {
             InitializeComponent();
             ColunasDgv();
-            LoadXMLData();
-            AtualizarDataGridView();
+            CarregarXML();
+            /*AtualizarDataGridView();*/
             CarregarEstoque();
+            ProdutosG();
         }
 
-        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        public void ProdutosG()
         {
-
+            produtosDisponiveis = new List<Produto>();
+            produtosDisponiveis = ProdutosXML("estoque.xml");
+            produtosVendidos = new List<Produto>();
         }
-       
 
+        private List<Produto> ProdutosXML(string caminho)
+        {
+            if (File.Exists(caminho))
+            {
+                try
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Produto>));
+                    using (StreamReader ler = new StreamReader(caminho))
+                    {
+                        return (List<Produto>)serializer.Deserialize(ler);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erro ao carregar produtos do XML: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            return new List<Produto>();
+        }
         private void TelaVenda_Load(object sender, EventArgs e)
         {
 
         }
-        private int LinhaRaiz(int productId)
+        public void LimparCampos()
         {
-            foreach (DataGridViewRow row in dgv_produto.Rows)
-            {
-                int id = int.Parse(row.Cells[0].Value.ToString());
-
-                if (id == productId)
-                {
-                    return row.Index;
-                }
-            }
-
-            return -1;
+            txt_id.Clear();
+            txt_nomeprod.Clear();
+            tx_quant.Clear();
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            int id;
-            if (int.TryParse(txt_id.Text, out id))
-            {
-                int quantidadeDesejada;
-                if (int.TryParse(tx_quant.Text, out quantidadeDesejada))
-                {
-                    Produto produtoSelecionado = produtos.FirstOrDefault(p => p.Id == id);
+            string ID = txt_id.Text;
+            int qt = Convert.ToInt32(tx_quant.Text);
 
-                    if (produtoSelecionado != null)
-                    {
-                        if (produtoSelecionado.Quantidade >= quantidadeDesejada)
-                        {
-                            produtoSelecionado.Quantidade -= quantidadeDesejada;
-                            UpdateXmlFile();
-                            UpdateDataGridView();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Estoque insuficiente para a quantidade desejada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Produto não encontrado com o ID fornecido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Digite uma quantidade válida.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
+            try
             {
-                MessageBox.Show("Digite um ID válido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Produto produto = produtosDisponiveis.Find(p => p.ID == ID);
+                if(produto != null && produto.Quantidade >= qt)
+                {
+                    produtosVendidos.Add(new Produto(produto.Nome, produto.ID, produto.Quantidade, produto.Preco, produto.Descricao));
+                
+                    produto.Quantidade -= qt;
+
+                    AtualizarDGV();
+
+                    SalvarVenda("estoque.xml", produtosDisponiveis);
+
+                    MessageBox.Show("Venda realizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Limpe os campos após a venda
+                    LimparCampos();
+                }
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void UpdateXmlFile()
-        {
-            try
-            {
-
-                foreach (DataGridViewRow row in dgv_produto.Rows)
-                {
-                    string name = row.Cells[0].Value.ToString();
-                    int id = int.Parse(row.Cells[1].Value.ToString());
-                    int quantity = int.Parse(row.Cells[2].Value.ToString());
-                    decimal price = decimal.Parse(row.Cells[3].Value.ToString());
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao salvar o arquivo XML: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-        private void AtualizarDataGridView()
+        private void SalvarVenda(string caminho, List<Produto> produtos)
         {
-            CadastroProduto novo = new CadastroProduto();
             try
             {
-                dgv_produto.Rows.Clear();
-
-                foreach (var cliente in novo.pro)
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Produto>));
+                using (StreamWriter esc = new StreamWriter(caminho))
                 {
-                    dgv_produto.Rows.Add(cliente.Nome, cliente.Id, cliente.Quantidade, cliente.Preco, cliente.Descricao);
+                    serializer.Serialize(esc, produtos);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao salvar produtos no XML: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
         private void CarregarEstoque()
         {
@@ -146,9 +134,9 @@ namespace TrabalhoXML_AGRVAI.Forms
                 {
                     XmlSerializer serializer = new XmlSerializer(typeof(List<Produto>));
 
-                    using (StreamReader reader = new StreamReader("estoque.xml"))
+                    using (StreamReader ler = new StreamReader("estoque.xml"))
                     {
-                        dnv.pro = (List<Produto>)serializer.Deserialize(reader);
+                        dnv.pro = (List<Produto>)serializer.Deserialize(ler);
                     }
                 }
             }
@@ -157,14 +145,32 @@ namespace TrabalhoXML_AGRVAI.Forms
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void UpdateDataGridView()
+        private void AtualizarDGV()
         {
             dgv_produto.Rows.Clear();
-            foreach(Produto computer in produtos)
+            foreach(Produto pc in produtos)
             {
-                dgv_produto.Rows.Add(computer.Nome, computer.Id, computer.Quantidade, computer.Preco.ToString("C"));
+                dgv_produto.Rows.Add(pc.Nome, pc.ID, pc.Quantidade, pc.Preco.ToString("C"));
             }
         }
+        /*private void AtualizarDataGridView()
+        {
+            CadastroProduto novo = new CadastroProduto();
+            try
+            {
+                dgv_produto.Rows.Clear();
+
+                foreach (var cliente in novo.pro)
+                {
+                    dgv_produto.Rows.Add(cliente.Nome, cliente.ID, cliente.Quantidade, cliente.Preco, cliente.Descricao);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }*/
         public void ColunasDgv()
         {
             try
@@ -204,14 +210,13 @@ namespace TrabalhoXML_AGRVAI.Forms
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void LoadXMLData()
+        private void CarregarXML()
         {
             try
             {
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load("estoque.xml");
                 XmlNodeList pessoaNodes = xmlDoc.SelectNodes("CadastroPro");
-                // Use o nome correto do nó XML usado durante a serialização
             }
             catch (Exception ex)
             {

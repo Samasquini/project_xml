@@ -33,7 +33,7 @@ namespace TrabalhoXML_AGRVAI.Forms
 
                 foreach (var cliente in novo.pro)
                 {
-                    dgv_estoque.Rows.Add(cliente.Nome, cliente.Id, cliente.Quantidade, cliente.Preco, cliente.Descricao);
+                    dgv_estoque.Rows.Add(cliente.Nome, cliente.ID, cliente.Quantidade, cliente.Preco, cliente.Descricao);
                 }
             }
             catch (Exception ex)
