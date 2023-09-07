@@ -17,13 +17,13 @@ namespace TrabalhoXML_AGRVAI.Classes
         public string Email { get; set; }
         public string Fone { get; set; }
 
-        public string password { get; set; }
+        public string Senha { get; set; }
 
         public CadastroClientes()
         {
 
         }
-        public CadastroClientes(string nome, string cpf, string email, string fone, string password)
+        public CadastroClientes(string nome, string cpf, string email, string fone, string Senha)
         {
             try
             {
@@ -31,24 +31,22 @@ namespace TrabalhoXML_AGRVAI.Classes
                 this.Cpf = cpf;
                 this.Email = email;
                 this.Fone = fone;
-                this.password= password;
+                this.Senha= Senha;
             }
             catch(Exception ex) {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void Cliente(string nome, string cpf, string email, string fone) 
-        {
-            this.Nome = nome;
+//--------------------------------------PRIMEIRO TESTE XML-------------------------------------------//
+        
+       /*
+        * 
+        * public void Cliente(string nome, string cpf, string email, string fone) 
+        {this.Nome = nome;
             this.Cpf = cpf;
             this.Email = email;
-            this.Fone = fone;
-        }
-        public void Main()
-        {
-            try
-            {
-                XmlWriter writer = null;
+            this.Fone = fone;}public void Main()
+        {try{   XmlWriter writer = null;
                 XmlDocument doc = new XmlDocument();
                 writer = XmlWriter.Create("Cliente.xml");
 
@@ -61,7 +59,7 @@ namespace TrabalhoXML_AGRVAI.Classes
 
 
                 // Write the bk:ISBN="1-800-925" attribute.
-                /*writer.WriteAttributeString("ISBN", "urn:book", "1-800-925");*/
+                *//*writer.WriteAttributeString("ISBN", "urn:book", "1-800-925");*//*
 
                 writer.WriteElementString("name", this.Nome);
                 writer.WriteElementString("cpf", this.Cpf);
@@ -69,12 +67,12 @@ namespace TrabalhoXML_AGRVAI.Classes
                 writer.WriteElementString("fone", this.Fone);
 
 
-                /*doc.LoadXml("Cliente.xml");
+                *//*doc.LoadXml("Cliente.xml");
 
                 XmlNode root = doc.FirstChild;
                 Console.WriteLine("Display the price element...");
 
-                Console.WriteLine(root.LastChild);*/
+                Console.WriteLine(root.LastChild);*//*
 
                 // Write the close tag for the root element.
                 writer.WriteEndElement();
@@ -89,7 +87,7 @@ namespace TrabalhoXML_AGRVAI.Classes
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }*/
 
     }
 }

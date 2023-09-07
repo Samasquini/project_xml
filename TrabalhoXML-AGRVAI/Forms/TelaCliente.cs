@@ -80,7 +80,6 @@ namespace TrabalhoXML_AGRVAI.Formzs
             {
                 dgv_clientes.AutoGenerateColumns = false;
 
-                // Configuração das colunas (você precisa adicionar as colunas aqui)
                 DataGridViewTextBoxColumn colunaNome = new DataGridViewTextBoxColumn();
                 colunaNome.DataPropertyName = "Nome";
                 colunaNome.HeaderText = "Nome";
@@ -166,9 +165,8 @@ namespace TrabalhoXML_AGRVAI.Formzs
 
         private void button3_Click(object sender, EventArgs e)
         {
-            /* TelaVenda novaVend = new TelaVenda();
-             novaVend.ShowDialog();*/
             Usuario usuario = new Usuario();
+            this.Dispose();
             usuario.ShowDialog();
         }
 
@@ -184,8 +182,7 @@ namespace TrabalhoXML_AGRVAI.Formzs
 
                 if (!(nm == "" && cf == "" && em == "" && fn == "" && sh == ""))
                 {
-
-                    XmlSerializer serialize = new XmlSerializer(typeof(List<CadastroClientes>));
+                    XmlSerializer serializa = new XmlSerializer(typeof(List<CadastroClientes>));
                     CadastroClientes nvCliente = new CadastroClientes(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text, tx_senha.Text);
 
                     clientes.Add(nvCliente);
@@ -194,16 +191,16 @@ namespace TrabalhoXML_AGRVAI.Formzs
 
                     using (StreamWriter writer = new StreamWriter("clientes.xml"))
                     {
-                        serialize.Serialize(writer, clientes);
+                        serializa.Serialize(writer, clientes);
                     }
 
                     if (clientes.Count > 0)
                     {
-                        XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroClientes>));
+                        XmlSerializer serializar = new XmlSerializer(typeof(List<CadastroClientes>));
 
                         using (StreamWriter writer = new StreamWriter("clientes.xml"))
                         {
-                            serializer.Serialize(writer, clientes);
+                            serializar.Serialize(writer, clientes);
                         }
                     }
                 }

@@ -25,13 +25,14 @@ namespace TrabalhoXML_AGRVAI.Forms
 
         private List<Produto> produtosDisponiveis;
         private List<Produto> produtosVendidos;
-        //Criar uma nova classe produto
+        
+
         public TelaVenda()
         {
             InitializeComponent();
             ColunasDgv();
             CarregarXML();
-            /*AtualizarDataGridView();*/
+            AtualizarDataGridView();
             CarregarEstoque();
             ProdutosG();
         }
@@ -87,7 +88,7 @@ namespace TrabalhoXML_AGRVAI.Forms
                 
                     produto.Quantidade -= qt;
 
-                    AtualizarDGV();
+                    DGV();
 
                     SalvarVenda("estoque.xml", produtosDisponiveis);
 
@@ -96,15 +97,24 @@ namespace TrabalhoXML_AGRVAI.Forms
                     // Limpe os campos após a venda
                     LimparCampos();
                 }
+                else
+                {
+                    MessageBox.Show("Produto não encontrado ou quantidade insuficiente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
-            }catch(Exception ex)
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show($"Erro ao realizar a venda: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -145,7 +155,7 @@ namespace TrabalhoXML_AGRVAI.Forms
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void AtualizarDGV()
+        private void DGV()
         {
             dgv_produto.Rows.Clear();
             foreach(Produto pc in produtos)
@@ -153,7 +163,7 @@ namespace TrabalhoXML_AGRVAI.Forms
                 dgv_produto.Rows.Add(pc.Nome, pc.ID, pc.Quantidade, pc.Preco.ToString("C"));
             }
         }
-        /*private void AtualizarDataGridView()
+        private void AtualizarDataGridView()
         {
             CadastroProduto novo = new CadastroProduto();
             try
@@ -170,14 +180,13 @@ namespace TrabalhoXML_AGRVAI.Forms
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-        }*/
+        }
         public void ColunasDgv()
         {
             try
             {
                 dgv_produto.AutoGenerateColumns = false;
 
-                // Configuração das colunas DGV
                 DataGridViewTextBoxColumn colunaNome = new DataGridViewTextBoxColumn();
                 colunaNome.DataPropertyName = "Nome";
                 colunaNome.HeaderText = "Nome";

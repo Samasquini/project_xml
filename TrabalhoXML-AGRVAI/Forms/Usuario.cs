@@ -29,16 +29,14 @@ namespace TrabalhoXML_AGRVAI.Forms
                 return;
             }
 
-            // Carregue o arquivo XML
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load("clientes.xml");
 
-            // Consulte o XML para encontrar o usuário
             XmlNode userNode = xmlDoc.SelectSingleNode($"//CadastroClientes[Nome='{username}']");
 
             if (userNode != null)
             {
-                string storedPassword = userNode.SelectSingleNode("password").InnerText;
+                string storedPassword = userNode.SelectSingleNode("Senha").InnerText;
 
                 if (password == storedPassword)
                 {

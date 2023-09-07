@@ -56,11 +56,11 @@ namespace TrabalhoXML_AGRVAI.Forms
                 }
                 if (pro.Count > 0)
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(List<Produto>));
+                    XmlSerializer serializar = new XmlSerializer(typeof(List<Produto>));
 
-                    using (StreamWriter writer = new StreamWriter("estoque.xml"))
+                    using (StreamWriter esc = new StreamWriter("estoque.xml"))
                     {
-                        serializer.Serialize(writer, pro);
+                        serializar.Serialize(esc, pro);
                     }
                 }
             }

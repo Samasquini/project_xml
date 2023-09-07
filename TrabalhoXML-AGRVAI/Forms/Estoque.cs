@@ -49,12 +49,11 @@ namespace TrabalhoXML_AGRVAI.Forms
             {
                 if (File.Exists("estoque.xml"))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(List<Produto>));
+                    XmlSerializer serializar = new XmlSerializer(typeof(List<Produto>));
 
-                    using (StreamReader reader = new StreamReader("estoque.xml"))
+                    using (StreamReader ler = new StreamReader("estoque.xml"))
                     {
-                        dnv.pro = (List<Produto>)serializer.Deserialize(reader);
-                        // ^^^ Aqui pode estar o problema, pois é "pro" ao invés de "pro"
+                        dnv.pro = (List<Produto>)serializar.Deserialize(ler);
                     }
                 }
             } catch(Exception ex)
@@ -68,7 +67,6 @@ namespace TrabalhoXML_AGRVAI.Forms
             {
                 dgv_estoque.AutoGenerateColumns = false;
 
-                // Configuração das colunas (você precisa adicionar as colunas aqui)
                 DataGridViewTextBoxColumn colunaNome = new DataGridViewTextBoxColumn();
                 colunaNome.DataPropertyName = "Nome";
                 colunaNome.HeaderText = "Nome";
@@ -107,7 +105,6 @@ namespace TrabalhoXML_AGRVAI.Forms
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load("estoque.xml");
                 XmlNodeList pessoaNodes = xmlDoc.SelectNodes("CadastroPro");
-                // Use o nome correto do nó XML usado durante a serialização
             }
             catch (Exception ex)
             {
@@ -124,19 +121,6 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
 
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            CadastroProduto novo = new CadastroProduto();
-            var list = novo.pro;
-            var index = dgv_estoque.CurrentCell.RowIndex;
-            
-            
-            dgv_estoque.DataSource = null;
-            dgv_estoque.Refresh();
-            dgv_estoque.DataSource = list;
-        }
-
         private void dgv_estoque_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
