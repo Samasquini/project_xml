@@ -43,6 +43,7 @@
             this.dgv_estoque.RowTemplate.Height = 24;
             this.dgv_estoque.Size = new System.Drawing.Size(641, 426);
             this.dgv_estoque.TabIndex = 0;
+            this.dgv_estoque.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_estoque_CellContentClick);
             // 
             // button1
             // 

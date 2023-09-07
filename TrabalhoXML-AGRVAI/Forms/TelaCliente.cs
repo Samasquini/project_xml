@@ -14,17 +14,14 @@ using TrabalhoXML_AGRVAI.Classes;
 using System.Xml;
 using System.Xml.Linq;
 using TrabalhoXML_AGRVAI.Forms;
-using System.Security.Cryptography.X509Certificates;
 
 namespace TrabalhoXML_AGRVAI.Formzs
 {
     public partial class TelaCliente : Form
     {
-        /*List<CadastroClientes> clientes = new List<CadastroClientes>();*/
-        Cliente novo = new Cliente();
-      
+        List<CadastroClientes> clientes = new List<CadastroClientes>();
         private string arquivoXML = "clientes.xml";
-       
+        /*private DataGridView dataGridViewClientes;*/
         public TelaCliente()
         {
             try
@@ -39,24 +36,23 @@ namespace TrabalhoXML_AGRVAI.Formzs
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
         private void CarregarClientes()
         {
-            
             try
             {
                 if (File.Exists(arquivoXML))
                 {
                     XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroClientes>));
 
-                    using (StreamReader lerXml = new StreamReader(arquivoXML))
+                    using (StreamReader reader = new StreamReader(arquivoXML))
                     {
-                        novo.clientes = (List<CadastroClientes>)serializer.Deserialize(lerXml);
+                        clientes = (List<CadastroClientes>)serializer.Deserialize(reader);
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -67,12 +63,12 @@ namespace TrabalhoXML_AGRVAI.Formzs
             {
                 dgv_clientes.Rows.Clear();
 
-                foreach (var cliente in novo.clientes)
+                foreach (var cliente in clientes)
                 {
                     dgv_clientes.Rows.Add(cliente.Nome, cliente.Cpf, cliente.Fone, cliente.Email);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -106,14 +102,18 @@ namespace TrabalhoXML_AGRVAI.Formzs
                 dgv_clientes.Columns.Add(colunaFone);
                 dgv_clientes.Columns.Add(colunaEmail);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-           
+            CadastroClientes novoCliente = new CadastroClientes();
+            novoCliente.Nome = txt_nome.Text;
+            novoCliente.Cpf = txt_cpf.Text;
+            novoCliente.Email = txt_email.Text;
+            novoCliente.Fone = txt_fone.Text;
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -127,24 +127,65 @@ namespace TrabalhoXML_AGRVAI.Formzs
         {
             this.Close();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void LimparCampos()
         {
-            /*try
+            txt_nome.Clear();
+            txt_cpf.Clear();
+            txt_email.Clear();
+            txt_fone.Clear();
+            tx_senha.Clear();
+        }
+
+        private void dgv_clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void LoadXMLData()
+        {
+            try
             {
-                *//*string nm = txt_nome.Text;
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load("clientes.xml");
+                XmlNodeList pessoaNodes = xmlDoc.SelectNodes("CadastroCliente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TelaCliente_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_clientes_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            /* TelaVenda novaVend = new TelaVenda();
+             novaVend.ShowDialog();*/
+            Usuario usuario = new Usuario();
+            usuario.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string nm = txt_nome.Text;
                 string cf = txt_cpf.Text;
                 string em = txt_email.Text;
                 string fn = txt_fone.Text;
-                string sh = tx_senha.Text;*//*
-                Cliente nvCli = new Cliente();
-                nvCli.nm;
+                string sh = tx_senha.Text;
 
                 if (!(nm == "" && cf == "" && em == "" && fn == "" && sh == ""))
                 {
 
                     XmlSerializer serialize = new XmlSerializer(typeof(List<CadastroClientes>));
-                    
                     CadastroClientes nvCliente = new CadastroClientes(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text, tx_senha.Text);
 
                     clientes.Add(nvCliente);
@@ -160,9 +201,9 @@ namespace TrabalhoXML_AGRVAI.Formzs
                     {
                         XmlSerializer serializer = new XmlSerializer(typeof(List<CadastroClientes>));
 
-                        using (StreamWriter ecXml = new StreamWriter("clientes.xml"))
+                        using (StreamWriter writer = new StreamWriter("clientes.xml"))
                         {
-                            serializer.Serialize(ecXml, clientes);
+                            serializer.Serialize(writer, clientes);
                         }
                     }
                 }
@@ -171,57 +212,20 @@ namespace TrabalhoXML_AGRVAI.Formzs
                     MessageBox.Show("Por favor, preencha todos os campos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
-
-        }
-       /* public void LimparCampos()
-        {
-            txt_nome.Clear();
-            txt_cpf.Clear();
-            txt_email.Clear();
-            txt_fone.Clear();
-           
-        }*/
-
-        public void dgv_clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        private void LoadXMLData()
-        {
-            try
-            {
-                XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load("clientes.xml");
-                XmlNodeList pessoaNode = xmlDoc.SelectNodes("CadastroCliente");
-            }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void TelaCliente_Load(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        public void dgv_clientes_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            /* TelaVenda novaVend = new TelaVenda();
-             novaVend.ShowDialog();*/
-
-            Usuario usuario = new Usuario();
             this.Dispose();
-            usuario.ShowDialog();
+        }
+
+        private void label9_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -136,5 +136,10 @@ namespace TrabalhoXML_AGRVAI.Forms
             dgv_estoque.Refresh();
             dgv_estoque.DataSource = list;
         }
+
+        private void dgv_estoque_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
