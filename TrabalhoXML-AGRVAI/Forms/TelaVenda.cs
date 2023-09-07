@@ -94,7 +94,6 @@ namespace TrabalhoXML_AGRVAI.Forms
 
                     MessageBox.Show("Venda realizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Limpe os campos após a venda
                     LimparCampos();
                 }
                 else
@@ -105,11 +104,11 @@ namespace TrabalhoXML_AGRVAI.Forms
             }
             catch (ArgumentException ex)
             {
-                MessageBox.Show($"Erro ao realizar a venda: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ocorreu um Erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao realizar a venda: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void button2_Click(object sender, EventArgs e)
