@@ -43,7 +43,7 @@ namespace TrabalhoXML_AGRVAI.Forms
                 string dcr = tx_descri.Text;
 
                 XmlSerializer serialize = new XmlSerializer(typeof(List<Produto>));
-                Produto prod = new Produto(id, nm, qt, pre, dcr);
+                Produto prod = new Produto(nm, id, qt, pre, dcr);
 
                 pro.Add(prod);
 

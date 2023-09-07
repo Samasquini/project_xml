@@ -34,102 +34,87 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
 
         }
-        private void LoadComputerData()
-        {
-           /* try
-            {
-                string xmlFilePath = "estoque.xml"; // Caminho para o arquivo XML
-                XElement root = XElement.Load(xmlFilePath);
-
-                foreach (XElement computerElement in root.Elements("computer"))
-                {
-                    CadastroPro computer = new CadastroPro();
-                    *//*computer.Nome = computerElement.Element("name").Value;
-                    computer.Preco = double.Parse(computerElement.Element("price").Value);*//*
-                    computer.Quantidade = int.Parse(computerElement.Element("quantity").Value);
-
-                    produtos.Add(computer);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
-        }
-        /*private void UpdateDataGridView()
-        {
-            *//*dgv_produto.Rows.Clear();
-            foreach (Produto computer in produtos)
-            {
-                dgv_produto.Rows.Add(computer.Nome, computer.Preco.ToString("C"), computer.Quantidade);
-            }*//*
-        }*/
+       
 
         private void TelaVenda_Load(object sender, EventArgs e)
         {
 
         }
+        private int LinhaRaiz(int productId)
+        {
+            foreach (DataGridViewRow row in dgv_produto.Rows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
 
+                if (id == productId)
+                {
+                    return row.Index;
+                }
+            }
+
+            return -1;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            int selectedId;
-            if (int.TryParse(txt_id.Text, out selectedId))
+            int id;
+            if (int.TryParse(txt_id.Text, out id))
             {
-                Produto selectedComputer = produtos.FirstOrDefault(c => c.Id == selectedId);// O lambda é "vai para"
-
-                if (selectedComputer != null && selectedComputer.Quantidade > 0)
+                int quantidadeDesejada;
+                if (int.TryParse(tx_quant.Text, out quantidadeDesejada))
                 {
-                    selectedComputer.Quantidade--;
-                    /*UpdateXmlFile();*/
-                    UpdateDataGridView();
+                    Produto produtoSelecionado = produtos.FirstOrDefault(p => p.Id == id);
+
+                    if (produtoSelecionado != null)
+                    {
+                        if (produtoSelecionado.Quantidade >= quantidadeDesejada)
+                        {
+                            produtoSelecionado.Quantidade -= quantidadeDesejada;
+                            UpdateXmlFile();
+                            UpdateDataGridView();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Estoque insuficiente para a quantidade desejada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Produto não encontrado com o ID fornecido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("ID inválido ou estoque esgotado para este computador.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Digite uma quantidade válida.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("Insira um ID válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Digite um ID válido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            /*  int selectedIndex = comboBoxComputers.SelectedIndex;
-              if (selectedIndex >= 0)
-              {
-                  Produto selectedComputer = produtos[selectedIndex];
-
-                  if (selectedComputer.Quantity > 0)
-                  {
-                      selectedComputer.Quantity--;
-                      labelQuantity.Text = "Quantidade disponível: " + selectedComputer.Quantity.ToString();
-                      UpdateDataGridView();
-                  }
-                  else
-                  {
-                      MessageBox.Show("Estoque esgotado para este computador.", "Sem Estoque", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                  }
-              }*/
         }
-        /*private void UpdateXmlFile()
-        {
-            XElement root = new XElement("CadastoPro");
-            foreach (CadastroPro computer in produtos)
-            {
-                XElement computerElement = new XElement("computer",
-                    new XAttribute("id", computer.Id),
-                    new XElement("Nome", computer.Nome),
-                    new XElement("Preço", computer.Preco),
-                    new XElement("Quantidade", computer.Quantidade)
-                );
-                root.Add(computerElement);
-            }
-            root.Save("estoque.xml");
-        }*/
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        private void UpdateXmlFile()
+        {
+            try
+            {
 
+                foreach (DataGridViewRow row in dgv_produto.Rows)
+                {
+                    string name = row.Cells[0].Value.ToString();
+                    int id = int.Parse(row.Cells[1].Value.ToString());
+                    int quantity = int.Parse(row.Cells[2].Value.ToString());
+                    decimal price = decimal.Parse(row.Cells[3].Value.ToString());
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao salvar o arquivo XML: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -177,7 +162,7 @@ namespace TrabalhoXML_AGRVAI.Forms
             dgv_produto.Rows.Clear();
             foreach(Produto computer in produtos)
             {
-                dgv_produto.Rows.Add(computer.Id, computer.Nome, computer.Preco.ToString("C"), computer.Quantidade);
+                dgv_produto.Rows.Add(computer.Nome, computer.Id, computer.Quantidade, computer.Preco.ToString("C"));
             }
         }
         public void ColunasDgv()
@@ -187,13 +172,17 @@ namespace TrabalhoXML_AGRVAI.Forms
                 dgv_produto.AutoGenerateColumns = false;
 
                 // Configuração das colunas DGV
-                DataGridViewTextBoxColumn colunaId = new DataGridViewTextBoxColumn();
-                colunaId.DataPropertyName = "ID";
-                colunaId.HeaderText = "ID";
-
                 DataGridViewTextBoxColumn colunaNome = new DataGridViewTextBoxColumn();
                 colunaNome.DataPropertyName = "Nome";
                 colunaNome.HeaderText = "Nome";
+
+                DataGridViewTextBoxColumn colunaId = new DataGridViewTextBoxColumn();
+                colunaId.DataPropertyName = "Id";
+                colunaId.HeaderText = "Id";
+
+                DataGridViewTextBoxColumn colunaQuant = new DataGridViewTextBoxColumn();
+                colunaQuant.DataPropertyName = "Quantidade";
+                colunaQuant.HeaderText = "Quantidade";
 
                 DataGridViewTextBoxColumn colunaPreco = new DataGridViewTextBoxColumn();
                 colunaPreco.DataPropertyName = "Preço";
@@ -203,9 +192,10 @@ namespace TrabalhoXML_AGRVAI.Forms
                 colunaDes.DataPropertyName = "Descrição";
                 colunaDes.HeaderText = "Descrição";
 
+
                 dgv_produto.Columns.Add(colunaNome);
                 dgv_produto.Columns.Add(colunaId);
-           
+                dgv_produto.Columns.Add(colunaQuant);
                 dgv_produto.Columns.Add(colunaPreco);
                 dgv_produto.Columns.Add(colunaDes);
             }
@@ -230,6 +220,11 @@ namespace TrabalhoXML_AGRVAI.Forms
         }
 
         private void txt_cpf_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_produto_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

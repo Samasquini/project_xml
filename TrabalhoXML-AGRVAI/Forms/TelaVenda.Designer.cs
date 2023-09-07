@@ -35,13 +35,13 @@
             this.dgv_produto = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txt_email = new System.Windows.Forms.TextBox();
+            this.tx_quant = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txt_nome = new System.Windows.Forms.TextBox();
+            this.txt_nomeprod = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_produto)).BeginInit();
             this.SuspendLayout();
@@ -54,13 +54,13 @@
             this.panel1.Controls.Add(this.dgv_produto);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txt_email);
+            this.panel1.Controls.Add(this.tx_quant);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txt_id);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.txt_nome);
+            this.panel1.Controls.Add(this.txt_nomeprod);
             this.panel1.Location = new System.Drawing.Point(53, 36);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -102,6 +102,7 @@
             this.dgv_produto.RowTemplate.Height = 24;
             this.dgv_produto.Size = new System.Drawing.Size(603, 317);
             this.dgv_produto.TabIndex = 11;
+            this.dgv_produto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_produto_CellContentClick);
             // 
             // label2
             // 
@@ -126,13 +127,13 @@
             this.label5.Size = new System.Drawing.Size(0, 25);
             this.label5.TabIndex = 9;
             // 
-            // txt_email
+            // tx_quant
             // 
-            this.txt_email.Location = new System.Drawing.Point(38, 211);
-            this.txt_email.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(192, 22);
-            this.txt_email.TabIndex = 10;
+            this.tx_quant.Location = new System.Drawing.Point(38, 211);
+            this.tx_quant.Margin = new System.Windows.Forms.Padding(4);
+            this.tx_quant.Name = "tx_quant";
+            this.tx_quant.Size = new System.Drawing.Size(192, 22);
+            this.tx_quant.TabIndex = 10;
             // 
             // button1
             // 
@@ -192,13 +193,13 @@
             this.label8.TabIndex = 3;
             this.label8.Text = "ID";
             // 
-            // txt_nome
+            // txt_nomeprod
             // 
-            this.txt_nome.Location = new System.Drawing.Point(135, 133);
-            this.txt_nome.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_nome.Name = "txt_nome";
-            this.txt_nome.Size = new System.Drawing.Size(192, 22);
-            this.txt_nome.TabIndex = 4;
+            this.txt_nomeprod.Location = new System.Drawing.Point(135, 133);
+            this.txt_nomeprod.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_nomeprod.Name = "txt_nomeprod";
+            this.txt_nomeprod.Size = new System.Drawing.Size(192, 22);
+            this.txt_nomeprod.TabIndex = 4;
             // 
             // TelaVenda
             // 
@@ -223,13 +224,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_email;
+        private System.Windows.Forms.TextBox tx_quant;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt_nome;
+        private System.Windows.Forms.TextBox txt_nomeprod;
         private System.Windows.Forms.DataGridView dgv_produto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
