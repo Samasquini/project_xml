@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace TrabalhoXML_AGRVAI.Forms
 {
     public partial class Estoque : Form
     {
+        List<Produto> produtos = new List<Produto>();
         public Estoque()
         {
             InitializeComponent();
@@ -34,7 +36,9 @@ namespace TrabalhoXML_AGRVAI.Forms
                 foreach (var cliente in novo.pro)
                 {
                     dgv_estoque.Rows.Add(cliente.Nome, cliente.ID, cliente.Quantidade, cliente.Preco, cliente.Descricao);
+
                 }
+                novo.pro = novo.pro.OrderBy(p => p.ID).ToList();
             }
             catch (Exception ex)
             {
@@ -50,11 +54,12 @@ namespace TrabalhoXML_AGRVAI.Forms
                 if (File.Exists("estoque.xml"))
                 {
                     XmlSerializer serializar = new XmlSerializer(typeof(List<Produto>));
-
+                    var produtosComQuantidade = produtos.Where(p => p.Quantidade > 0).ToList();
                     using (StreamReader ler = new StreamReader("estoque.xml"))
                     {
                         dnv.pro = (List<Produto>)serializar.Deserialize(ler);
                     }
+                    dnv.pro = dnv.pro.OrderBy(p => p.ID).ToList();
                 }
             } catch(Exception ex)
             {
@@ -98,10 +103,12 @@ namespace TrabalhoXML_AGRVAI.Forms
                 MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        
         private void LoadXMLData()
         {
             try
             {
+                var produtosComQuantidade = produtos.Where(p => p.Quantidade > 0).ToList();
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load("estoque.xml");
                 XmlNodeList pessoaNodes = xmlDoc.SelectNodes("CadastroPro");

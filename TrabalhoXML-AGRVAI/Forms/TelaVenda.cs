@@ -82,16 +82,15 @@ namespace TrabalhoXML_AGRVAI.Forms
             try
             {
                 Produto produto = produtosDisponiveis.Find(p => p.ID == ID);
+
                 if(produto != null && produto.Quantidade >= qt)
                 {
                     produtosVendidos.Add(new Produto(produto.Nome, produto.ID, produto.Quantidade, produto.Preco, produto.Descricao));
                 
                     produto.Quantidade -= qt;
-
                     DGV();
-
                     SalvarVenda("estoque.xml", produtosDisponiveis);
-
+                    AtualizarDataGridView();
                     MessageBox.Show("Venda realizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     LimparCampos();
@@ -123,6 +122,9 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
             try
             {
+                /*var produtosComQuantidade = produtos.Where(p => p.Quantidade > 0).ToList();*/
+                produtos.RemoveAll(p => p.Quantidade == 0);
+
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Produto>));
                 using (StreamWriter esc = new StreamWriter(caminho))
                 {
@@ -157,7 +159,8 @@ namespace TrabalhoXML_AGRVAI.Forms
         private void DGV()
         {
             dgv_produto.Rows.Clear();
-            foreach(Produto pc in produtos)
+            
+            foreach (Produto pc in produtos)
             {
                 dgv_produto.Rows.Add(pc.Nome, pc.ID, pc.Quantidade, pc.Preco.ToString("C"));
             }
@@ -168,11 +171,12 @@ namespace TrabalhoXML_AGRVAI.Forms
             try
             {
                 dgv_produto.Rows.Clear();
-
+                produtos.RemoveAll(p => p.Quantidade == 0);
                 foreach (var cliente in novo.pro)
                 {
                     dgv_produto.Rows.Add(cliente.Nome, cliente.ID, cliente.Quantidade, cliente.Preco, cliente.Descricao);
                 }
+
             }
             catch (Exception ex)
             {

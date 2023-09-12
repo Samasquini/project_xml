@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using TrabalhoXML_AGRVAI.Classes;
-
 using System.Xml;
 using System.Xml.Linq;
 using TrabalhoXML_AGRVAI.Forms;
@@ -20,8 +19,8 @@ namespace TrabalhoXML_AGRVAI.Formzs
     public partial class TelaCliente : Form
     {
         List<CadastroClientes> clientes = new List<CadastroClientes>();
+
         private string arquivoXML = "clientes.xml";
-        /*private DataGridView dataGridViewClientes;*/
         public TelaCliente()
         {
             try
@@ -51,6 +50,7 @@ namespace TrabalhoXML_AGRVAI.Formzs
                         clientes = (List<CadastroClientes>)serializer.Deserialize(reader);
                     }
                 }
+                clientes = clientes.OrderBy(x => x.Nome).ToList();
             }
             catch (Exception ex)
             {
@@ -67,6 +67,7 @@ namespace TrabalhoXML_AGRVAI.Formzs
                 {
                     dgv_clientes.Rows.Add(cliente.Nome, cliente.Cpf, cliente.Fone, cliente.Email);
                 }
+                    clientes = clientes.OrderBy(x => x.Nome).ToList();
             }
             catch (Exception ex)
             {
@@ -186,7 +187,10 @@ namespace TrabalhoXML_AGRVAI.Formzs
                     CadastroClientes nvCliente = new CadastroClientes(txt_nome.Text, txt_cpf.Text, txt_email.Text, txt_fone.Text, tx_senha.Text);
 
                     clientes.Add(nvCliente);
+
+                /*  clientes = clientes.OrderBy(x => x.Nome).ToList();*/
                     AtualizarDataGridView();
+                   
                     LimparCampos();
 
                     using (StreamWriter writer = new StreamWriter("clientes.xml"))

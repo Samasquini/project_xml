@@ -86,6 +86,7 @@ namespace TrabalhoXML_AGRVAI.Forms
                     XmlSerializer serializer = new XmlSerializer(typeof(List<Produto>));
                     pro = (List<Produto>)serializer.Deserialize(reader);
                 }
+                pro = pro.OrderBy(x => x.Nome).ToList();
             }
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -97,7 +98,7 @@ namespace TrabalhoXML_AGRVAI.Forms
         {
 
         }
-
+        
         private void panel1_Paint_1(object sender, PaintEventArgs e)
         {
 

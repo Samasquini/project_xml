@@ -42,5 +42,14 @@ namespace TrabalhoXML_AGRVAI
         {
             this.Dispose();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Usuario usuario = new Usuario();
+            TelaInicial ti = new TelaInicial();
+
+            ti.Close();
+            usuario.ShowDialog();
+        }
     }
 }
