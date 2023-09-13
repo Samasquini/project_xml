@@ -28,7 +28,7 @@ namespace TrabalhoXML_AGRVAI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TelaAdmim nvAdm= new TelaAdmim();
+            Adm nvAdm= new Adm();
 
             nvAdm.ShowDialog();
         }

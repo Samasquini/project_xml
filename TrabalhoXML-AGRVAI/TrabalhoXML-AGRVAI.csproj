@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Classes\CadastroClientes.cs" />
     <Compile Include="Classes\Produto.cs" />
+    <Compile Include="Forms\Adm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Adm.Designer.cs">
+      <DependentUpon>Adm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CadastroProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Adm.resx">
+      <DependentUpon>Adm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CadastroProduto.resx">
       <DependentUpon>CadastroProduto.cs</DependentUpon>
     </EmbeddedResource>

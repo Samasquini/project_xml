@@ -48,7 +48,7 @@ namespace TrabalhoXML_AGRVAI.Forms
 
 
                 pro.Add(prod);
-
+                MessageBox.Show("Produto Salvo com Sucesso!", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimparCampos();
                 using (StreamWriter writer = new StreamWriter("estoque.xml"))
                 {

@@ -13,6 +13,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using TrabalhoXML_AGRVAI.Classes;
+using TrabalhoXML_AGRVAI.Formzs;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
@@ -22,7 +23,6 @@ namespace TrabalhoXML_AGRVAI.Forms
     {
         List<Produto> produtos = new List<Produto>();
         Produto prod = new Produto();
-
         private List<Produto> produtosDisponiveis;
         private List<Produto> produtosVendidos;
         
@@ -71,7 +71,6 @@ namespace TrabalhoXML_AGRVAI.Forms
         public void LimparCampos()
         {
             txt_id.Clear();
-            txt_nomeprod.Clear();
             tx_quant.Clear();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -92,7 +91,6 @@ namespace TrabalhoXML_AGRVAI.Forms
                     SalvarVenda("estoque.xml", produtosDisponiveis);
                     AtualizarDataGridView();
                     MessageBox.Show("Venda realizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     LimparCampos();
                 }
                 else

@@ -38,10 +38,8 @@
             this.tx_quant = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txt_nomeprod = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_produto)).BeginInit();
             this.SuspendLayout();
@@ -57,10 +55,8 @@
             this.panel1.Controls.Add(this.tx_quant);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txt_id);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.txt_nomeprod);
             this.panel1.Location = new System.Drawing.Point(53, 36);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -109,7 +105,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(35, 189);
+            this.label2.Location = new System.Drawing.Point(135, 114);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 18);
@@ -129,7 +125,7 @@
             // 
             // tx_quant
             // 
-            this.tx_quant.Location = new System.Drawing.Point(38, 211);
+            this.tx_quant.Location = new System.Drawing.Point(133, 133);
             this.tx_quant.Margin = new System.Windows.Forms.Padding(4);
             this.tx_quant.Name = "tx_quant";
             this.tx_quant.Size = new System.Drawing.Size(192, 22);
@@ -160,18 +156,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Venda Produto";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(135, 115);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 18);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Nome produto";
-            // 
             // txt_id
             // 
             this.txt_id.Location = new System.Drawing.Point(38, 133);
@@ -192,14 +176,6 @@
             this.label8.Size = new System.Drawing.Size(24, 18);
             this.label8.TabIndex = 3;
             this.label8.Text = "ID";
-            // 
-            // txt_nomeprod
-            // 
-            this.txt_nomeprod.Location = new System.Drawing.Point(135, 133);
-            this.txt_nomeprod.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_nomeprod.Name = "txt_nomeprod";
-            this.txt_nomeprod.Size = new System.Drawing.Size(192, 22);
-            this.txt_nomeprod.TabIndex = 4;
             // 
             // TelaVenda
             // 
@@ -227,10 +203,8 @@
         private System.Windows.Forms.TextBox tx_quant;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt_nomeprod;
         private System.Windows.Forms.DataGridView dgv_produto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;

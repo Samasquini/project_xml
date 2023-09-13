@@ -18,7 +18,7 @@ namespace TrabalhoXML_AGRVAI.Formzs
 {
     public partial class TelaCliente : Form
     {
-        List<CadastroClientes> clientes = new List<CadastroClientes>();
+        public List<CadastroClientes> clientes = new List<CadastroClientes>();
 
         private string arquivoXML = "clientes.xml";
         public TelaCliente()
